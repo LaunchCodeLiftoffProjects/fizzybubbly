@@ -23,10 +23,10 @@ test {
 	useJUnitPlatform()
 }
 
-jar {
-	manifest {
-		attributes(
-				'main': 'com.fizzybubbly.fizzybubbly.FizzybubblyApplication'
-		)
-	}
-}
+//jar {
+//	manifest {
+//		attributes(
+//				'main': 'com.fizzybubbly.fizzybubbly.FizzybubblyApplication'
+//		)
+//	}
+//}
