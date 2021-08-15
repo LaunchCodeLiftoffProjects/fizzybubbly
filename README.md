@@ -21,6 +21,7 @@ Release 2
 - Review: Users will be able to write/edit/delete their own review of a product
 - Comment: Users will be able to leave comments on product reviews
 
+
 Release 3
 - Find Retailers: Users will be able to use an embedded map to find nearby retailers that carry particular products
 - Affiliate Links: Users will be able to follow links to third-party sites where they can purchase products
@@ -45,3 +46,4 @@ Release 3
 ## Project Tracker
 
 [Epics/Stories](https://trello.com/b/bypjBxmR/epics-stories)
+
