@@ -1,6 +1,8 @@
+#FizzyBubbly
+
 ## Overview
 
-Our project is a product review site dedicated to non-alcoholic seltzers and sparkling waters. The heart of this web app is a database of 50+ such products. Users will be able to find and create product reviews, rate products, and log in to curate a personal list of favorites. They will also be able to find places to purchase products both online and at brick-and-mortar retailers.
+Our project is a product review site (“FizzyBubbly”) dedicated to non-alcoholic seltzers and sparkling waters. The heart of this web app is a database of 50+ such products. Users will be able to find and create product reviews, rate products, and log in to curate a personal list of favorites. They will also be able to find places to purchase products both online and at brick-and-mortar retailers.
 
 This project was conceived with a desire to easily discover and remember drinks that are becoming steadily more popular and therefore more numerous.
 
