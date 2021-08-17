@@ -1,8 +1,8 @@
-# FizzyBubbly
+# fizzybubbly
 
 ## Overview
 
-Our project is a product review site (“FizzyBubbly”) dedicated to non-alcoholic seltzers and sparkling waters. The heart of this web app is a database of 50+ such products. Users will be able to find and create product reviews, rate products, and log in to curate a personal list of favorites. They will also be able to find places to purchase products both online and at brick-and-mortar retailers.
+Our project is a product review site (“fizzybubbly”) dedicated to non-alcoholic seltzers and sparkling waters. The heart of this web app is a database of 50+ such products. Users will be able to find and create product reviews, rate products, and log in to curate a personal list of favorites. They will also be able to find places to purchase products both online and at brick-and-mortar retailers.
 
 This project was conceived with a desire to easily discover and remember drinks that are becoming steadily more popular and therefore more numerous.
 
@@ -20,6 +20,7 @@ Release 2
 - Rate: Users will be able to rate products, and that rating will be a fourth property of each seltzer
 - Review: Users will be able to write/edit/delete their own review of a product
 - Comment: Users will be able to leave comments on product reviews
+
 
 Release 3
 - Find Retailers: Users will be able to use an embedded map to find nearby retailers that carry particular products
@@ -46,4 +47,3 @@ Release 3
 
 [Epics/Stories](https://trello.com/b/bypjBxmR/epics-stories)
 
-[Project Management](https://trello.com/b/zPGLhF0O/seltzer-notes)
