@@ -47,4 +47,3 @@ Release 3
 
 [Epics/Stories](https://trello.com/b/bypjBxmR/epics-stories)
 
-Liz is here
