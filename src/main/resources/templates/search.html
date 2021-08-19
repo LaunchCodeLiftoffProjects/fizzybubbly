@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search:</h2>
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+
+    <table>
+        <tr th:each="drink : ${drinks}">
+            <td>
+                <p th:text="${'Brand: ' + drink.brand}"></p>
+                <p th:text="${'Flavor: ' + drink.flavor}"></p>
+                <p th:text="${'Carbonation: ' + drink.carbonation}"></p>
+                <p th:text="${'Rating: ' + drink.rating}"></p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
