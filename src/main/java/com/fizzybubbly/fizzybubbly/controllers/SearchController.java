@@ -18,7 +18,8 @@ public class SearchController {
     private DrinkRepository drinkRepository;
 
     @RequestMapping("")
-    public String search() {
+    public String search(Model model) {
+        model.addAttribute("title", "find a seltz");
         return "search";
     }
 
@@ -30,7 +31,7 @@ public class SearchController {
         } else {
             drinks = DrinkData.findByValue(searchTerm, drinkRepository.findAll());
         }
-        model.addAttribute("title", "Drinks with: " + searchTerm);
+        model.addAttribute("title", "find a seltz: " + searchTerm);
         model.addAttribute("drinks", drinks);
 
         return "search";
