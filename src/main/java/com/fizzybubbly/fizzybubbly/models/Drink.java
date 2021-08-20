@@ -31,7 +31,7 @@ public class Drink {
 
     @Override
     public String toString() {
-        return brand + flavor;
+        return brand + " " + flavor;
     }
 
     @Override
