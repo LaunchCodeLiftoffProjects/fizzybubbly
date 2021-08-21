@@ -24,13 +24,13 @@ public class ProductPageController {
         return "productPage";
     }
 
-    @PostMapping("productPage/drink.id=")
+    @PostMapping("search")
     public String displaySeltzInfo(Model model, @RequestParam String searchTerm) {
         Iterable<Drink> drinks = null;
         if(searchTerm.toLowerCase().equals("")) {
             drinks = DrinkData.findByValue(searchTerm, drinkRepository.findAll());
         }
-        model.addAttribute("title", searchTerm + "seltz info");
+        model.addAttribute("title", searchTerm + "seltzy info");
         model.addAttribute("drinks", drinks);
 
         return "productPage";
