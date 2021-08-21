@@ -33,6 +33,6 @@ public class ProductPageController {
         model.addAttribute("title", searchTerm + "seltzy info");
         model.addAttribute("drinks", drinks);
 
-        return "productPage";
+        return "productPage/(id=${drink.brand},${drink.flavor})";
     }
 }

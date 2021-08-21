@@ -29,7 +29,7 @@
                 <p th:text="${'Flavor: ' + drink.flavor}"></p>
                 <p th:text="${'Carbonation: ' + drink.carbonation}"></p>
                 <p th:text="${'Rating: ' + drink.rating}"></p>
-                <a th:href="@{search}">
+                <a th:href="@{/productPage(id=${drink.brand},${drink.flavor})}">
                     <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
                 </a>
 
