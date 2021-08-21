@@ -24,15 +24,17 @@
     <table>
         <tr th:each="drink : ${drinks}">
             <td>
+
                 <p th:text="${'Brand: ' + drink.brand}"></p>
                 <p th:text="${'Flavor: ' + drink.flavor}"></p>
                 <p th:text="${'Carbonation: ' + drink.carbonation}"></p>
                 <p th:text="${'Rating: ' + drink.rating}"></p>
+                <a th:href="@{search}">
+                    <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
+                </a>
+
             </td>
         </tr>
-        <div>
-            <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
-        </div>
     </table>
 
 </div>
