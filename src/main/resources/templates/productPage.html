@@ -24,12 +24,12 @@
     <table>
         <tr th:each="drink : ${drinks}">
             <td>
-
+                <p th:text="${'Id: ' + drinkId}"></p> <!---(id=${getDrinkId()})--->
                 <p th:text="${'Brand: ' + drink.brand}"></p>
                 <p th:text="${'Flavor: ' + drink.flavor}"></p>
                 <p th:text="${'Carbonation: ' + drink.carbonation}"></p>
                 <p th:text="${'Rating: ' + drink.rating}"></p>
-                <a th:href="@{/productPage(id=${drink.brand},${drink.flavor})}">
+                <a th:href="@{/productPage/details(id=${drinkId})}">
                     <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
                 </a>
 

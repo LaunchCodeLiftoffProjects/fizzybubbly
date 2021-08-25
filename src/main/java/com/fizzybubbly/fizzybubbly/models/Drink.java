@@ -10,7 +10,7 @@ public class Drink {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int drinkId;
 
     private String brand;
 
@@ -20,7 +20,8 @@ public class Drink {
 
     private int rating;
 
-    public Drink(String brand, String flavor, String carbonation, int rating) {
+    public Drink(int drinkId, String brand, String flavor, String carbonation, int rating) {
+        this.drinkId = drinkId;
         this.brand = brand;
         this.flavor = flavor;
         this.carbonation = carbonation;
@@ -39,12 +40,16 @@ public class Drink {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Drink that = (Drink) o;
-        return id == that.id;
+        return drinkId == that.drinkId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(drinkId);
+    }
+
+    public int getDrinkId() {
+        return drinkId;
     }
 
     public String getBrand() {
