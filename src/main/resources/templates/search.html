@@ -10,32 +10,6 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <form>
-        <div class="row">
-            <div class="col">
-                <p>Brand</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="brandParam" id="brandParam" value="brand1">
-                    <label class="form-check-label" for="brandParam">LaCroix</label>
-                </div>
-            </div>
-            <div class="col">
-                <p>Carbonation</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="carbonationParam" id="carbonationParam" value="carb1">
-                    <label class="form-check-label" for="carbonationParam">Heavy</label>
-                </div>
-            </div>
-            <div class="col">
-                <p>Rating</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ratingParam" id="ratingParam" value="rate1">
-                    <label class="form-check-label" for="ratingParam">5/5 & up</label>
-                </div>
-            </div>
-        </div>
-    </form>
-
     <br>
 
     <form th:action="@{/search/results}" method = "post">
