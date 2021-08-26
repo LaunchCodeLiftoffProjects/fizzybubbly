@@ -15,30 +15,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-@RequestMapping ("productPage")
+@RequestMapping("productPage")
 public class ProductPageController {
 
     @Autowired
     private DrinkRepository drinkRepository;
 
-    @RequestMapping("")
-    public String productInfo(Model model) {
-        model.addAttribute("title", "seltzy info");
-        model.addAttribute("drinks", drinkRepository.findAll());
-        return "productPage";
-    }
-
-    @GetMapping("productPage")
+    @GetMapping("")
     public String displayDrinkDetails(@RequestParam Integer drinkId, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
-        if (result.isEmpty()) {
-            model.addAttribute("title", "Invalid Drink ID: " + drinkId);
-        } else {
-            Drink drink = result.get();
-            model.addAttribute("title", drink.toString() + " Details");
-            model.addAttribute("drink", drink);
-                    }
-        return "productPage";
-    }
+        Drink drink = result.get();
+        model.addAttribute("title", drink);
+        model.addAttribute("drink", drink);
 
+        return "productPage";
+
+    }
 }
