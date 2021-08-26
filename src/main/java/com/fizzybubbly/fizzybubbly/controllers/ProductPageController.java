@@ -28,20 +28,7 @@ public class ProductPageController {
         return "productPage";
     }
 
-//    @PostMapping("{drink.brand}+{drink.flavor}")
-//    public String displaySeltzInfo(Model model, @RequestParam String searchTerm) {
-//        Iterable<Drink> drinks = null;
-//        if (searchTerm.toLowerCase().equals("${drink.brand} + ${drink.flavor}")) {
-//            drinks = DrinkData.findByValue(searchTerm, drinkRepository.findAll());
-//            model.addAttribute("title", searchTerm + "seltzy info:");
-//            model.addAttribute("drinks", drinks);
-//        } else
-//            model.addAttribute("title", searchTerm + "seltzy info not in database");
-//
-//        return "{drink.brand}+{drink.flavor}";
-//    }
-
-    @GetMapping("(id=${drink.drinkId})") //(id=${drinkId()})
+    @GetMapping("productPage")
     public String displayDrinkDetails(@RequestParam Integer drinkId, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
         if (result.isEmpty()) {
