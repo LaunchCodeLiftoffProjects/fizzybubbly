@@ -1,4 +1,4 @@
-id,Brand,Flavor,Carbonation,Rating
+drink_id,Brand,Flavor,Carbonation,Rating
 1,Polar,Black Cherry,Heavy,5
 2,Polar,Lime,Heavy,4
 3,Polar,Lemon,Heavy,4
