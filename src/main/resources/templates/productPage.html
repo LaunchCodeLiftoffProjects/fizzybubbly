@@ -11,32 +11,63 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <form th:action="@{/search/results}" method = "post">
-        <h2>Search:</h2>
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
+        <label for="searchTerm">Search:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
+        <br>
 
-    <table>
-        <tr th:each="drink : ${drinks}">
-            <td>
+        <p th:if="${drinks}"><span th:text="${drinks.size()}"></span> results found</p>
 
-                <p th:text="${'Brand: ' + drink.brand}"></p>
-                <p th:text="${'Flavor: ' + drink.flavor}"></p>
-                <p th:text="${'Carbonation: ' + drink.carbonation}"></p>
-                <p th:text="${'Rating: ' + drink.rating}"></p>
-                <a th:href="@{/productPage(id=${drink.brand},${drink.flavor})}">
-                    <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
-                </a>
+        <hr/>
 
-            </td>
+<!--    <table>-->
+<!--        <tr th:each="drink : ${drinks}">-->
+<!--            <td>-->
+<!--                <p th:text="${'Id: ' + drink.getDrinkId()}"></p> &lt;!&ndash;-(id=${getDrinkId()})-&ndash;&gt;-->
+<!--                <p th:text="${'Brand: ' + drink.brand}"></p>-->
+<!--                <p th:text="${'Flavor: ' + drink.flavor}"></p>-->
+<!--                <p th:text="${'Carbonation: ' + drink.carbonation}"></p>-->
+<!--                <p th:text="${'Rating: ' + drink.rating}"></p>-->
+<!--                <a th:href="@{/productPage(id=${drink.drinkId})}">-->
+<!--                    <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>-->
+<!--                </a>-->
+
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Drink</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Reviews</th>
         </tr>
-    </table>
+        </thead>
+        <tbody>
+        <tr th:each="drink : ${drinks}">
 
+            <td th:text="${drink.brand + ' ' + drink.flavor}"></td>
+            <td th:text="${drink.rating + '/5'}"></td>
+            <td th:text="${drink.drinkId}"></td>
+            <td><a th:href="@{/productPage(id=${drink.drinkId})}">
+                <img th:src="@{/images/sodacan.png}" class="rounded mx-auto d-block"/>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Seltzy Reviews</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="drink : ${drinks}">
+            <td th:text="${drink.rating + '/5'}"></td>
+            <td th:text="${drink.drinkId}"></td>
+    </table>
 </div>
 
 </body>
