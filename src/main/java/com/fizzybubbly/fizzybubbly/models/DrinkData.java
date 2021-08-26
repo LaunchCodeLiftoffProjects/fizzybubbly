@@ -24,17 +24,4 @@ public class DrinkData {
         return results;
     }
 
-    public static ArrayList<Drink> findById(int drinkId, Iterable<Drink> allDrinks) {
-
-        ArrayList<Drink> result = new ArrayList<>();
-
-        for (Drink drink : allDrinks) {
-
-            if (drink.getDrinkId() == drinkId) {
-                result.add(drink);
-            }
-        }
-        return result;
-    }
-
 }

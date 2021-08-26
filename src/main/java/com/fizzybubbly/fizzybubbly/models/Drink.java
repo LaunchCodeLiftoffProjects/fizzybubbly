@@ -6,11 +6,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Drink {
-
-    @Id
-    @GeneratedValue
-    private int drinkId;
+public class Drink extends AbstractEntity {
 
     private String brand;
 
@@ -20,8 +16,7 @@ public class Drink {
 
     private int rating;
 
-    public Drink(int drinkId, String brand, String flavor, String carbonation, int rating) {
-        this.drinkId = drinkId;
+    public Drink(String brand, String flavor, String carbonation, int rating) {
         this.brand = brand;
         this.flavor = flavor;
         this.carbonation = carbonation;
@@ -33,23 +28,6 @@ public class Drink {
     @Override
     public String toString() {
         return brand + " " + flavor;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Drink that = (Drink) o;
-        return drinkId == that.drinkId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(drinkId);
-    }
-
-    public int getDrinkId() {
-        return drinkId;
     }
 
     public String getBrand() {
