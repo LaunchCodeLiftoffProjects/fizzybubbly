@@ -4,6 +4,7 @@ import com.fizzybubbly.fizzybubbly.models.Drink;
 import com.fizzybubbly.fizzybubbly.models.DrinkData;
 import com.fizzybubbly.fizzybubbly.models.data.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ProductPageController {
 
     @RequestMapping("")
     public String productInfo(Model model) {
-        model.addAttribute("title", "seltz info");
+        model.addAttribute("title", "seltzy info");
         model.addAttribute("drinks", drinkRepository.findAll());
         return "productPage";
     }
@@ -40,7 +41,7 @@ public class ProductPageController {
 //        return "{drink.brand}+{drink.flavor}";
 //    }
 
-    @GetMapping("details") //(id=${drinkId()})
+    @GetMapping("(id=${drink.drinkId})") //(id=${drinkId()})
     public String displayDrinkDetails(@RequestParam Integer drinkId, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
         if (result.isEmpty()) {
