@@ -19,6 +19,8 @@
         <th>Rating</th>
     </tr>
     </thead>
+
+<!--    /productPage?drinkId=${drink.id}-->
     <tr th:each="drink : ${drinks}">
         <td th:text="${drink.brand}"></td>
         <td th:text="${drink.flavor}"></td>
