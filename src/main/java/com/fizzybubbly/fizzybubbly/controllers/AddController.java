@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("about")
-public class AboutController {
+@RequestMapping("add")
+public class AddController {
 
     @GetMapping
-    public String about(Model model) {
-        model.addAttribute("title", "about");
-        return "about.html";
+    public String add(Model model) {
+        model.addAttribute("title", "add a seltz");
+        return "add";
     }
 
 }

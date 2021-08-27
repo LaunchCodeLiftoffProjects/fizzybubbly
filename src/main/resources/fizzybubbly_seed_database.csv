@@ -1,5 +1,5 @@
-id,Brand,Flavor,Carbonation,Rating
-1,Polar,Black Cherry,Heavy,5
+id,Brand,Flavor,Carbonation,Rating,Image
+1,Polar,Black Cherry,Heavy,5,/images/seltzers/polar/blackcherry.png
 2,Polar,Lime,Heavy,4
 3,Polar,Lemon,Heavy,4
 4,Waterloo,Black Cherry,Medium,5

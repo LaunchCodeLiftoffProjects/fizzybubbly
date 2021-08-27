@@ -18,7 +18,7 @@ public class SearchController {
     @Autowired
     private DrinkRepository drinkRepository;
 
-    @RequestMapping("")
+    @RequestMapping
     public String search(Model model) {
         model.addAttribute("title", "find a seltz");
         return "search";
