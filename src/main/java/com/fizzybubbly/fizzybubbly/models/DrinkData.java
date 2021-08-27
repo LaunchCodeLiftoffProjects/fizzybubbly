@@ -10,7 +10,7 @@ public class DrinkData {
         ArrayList<Drink> results = new ArrayList<>();
 
         for (Drink drink : allDrinks) {
-
+//toLowerCase can't be used anymore since getBrand returns a Brand
             if (drink.getBrand().toLowerCase().contains(lower_val)) {
                 results.add(drink);
             } else if (drink.getFlavor().toLowerCase().contains(lower_val)) {

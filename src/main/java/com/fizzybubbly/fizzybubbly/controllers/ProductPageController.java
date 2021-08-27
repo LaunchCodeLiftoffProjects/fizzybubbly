@@ -19,8 +19,9 @@ public class ProductPageController {
     private DrinkRepository drinkRepository;
 
     @GetMapping
-    public String displayDrinkDetails(@RequestParam Integer drinkId, Model model) {
+    public String displayDrinkDetails(@RequestParam(required = false) Integer drinkId, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
+
         Drink drink = result.get();
         model.addAttribute("title", drink);
         model.addAttribute("drink", drink);
