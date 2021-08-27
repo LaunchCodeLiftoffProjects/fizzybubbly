@@ -1,26 +1,29 @@
 package com.fizzybubbly.fizzybubbly.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.Objects;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Drink extends AbstractEntity {
 
-    private String brand;
+    @ManyToOne
+    private Brand brand;
 
-    private String flavor;
+    @ManyToOne
+    private Flavor flavor;
 
     private String carbonation;
 
     private int rating;
 
-    public Drink(String brand, String flavor, String carbonation, int rating) {
+    private String imagePath;
+
+    public Drink(Brand brand, Flavor flavor, String carbonation, int rating, String imagePath) {
         this.brand = brand;
         this.flavor = flavor;
         this.carbonation = carbonation;
         this.rating = rating;
+        this.imagePath = imagePath;
     }
 
     public Drink() {}
@@ -31,18 +34,18 @@ public class Drink extends AbstractEntity {
     }
 
     public String getBrand() {
-        return brand;
+        return brand.getName();
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
     public String getFlavor() {
-        return flavor;
+        return flavor.getName();
     }
 
-    public void setFlavor(String flavor) {
+    public void setFlavor(Flavor flavor) {
         this.flavor = flavor;
     }
 
