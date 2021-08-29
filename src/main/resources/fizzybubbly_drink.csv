@@ -31,3 +31,4 @@ id,brand_id,flavor_id,carbonation,rating,image_path
 30,6,24,Medium,2,/images/seltzers/lacroix/kiwiwatermelon.png
 31,6,25,Medium,3,/images/seltzers/lacroix/lacola.png
 32,6,11,Medium,4,/images/seltzers/lacroix/unflavored.png
+
