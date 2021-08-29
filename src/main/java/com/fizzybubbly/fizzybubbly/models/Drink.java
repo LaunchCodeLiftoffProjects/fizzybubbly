@@ -30,7 +30,7 @@ public class Drink extends AbstractEntity {
 
     @Override
     public String toString() {
-        return brand + " " + flavor;
+        return brand.getName() + " " + flavor.getName();
     }
 
     public String getBrand() {
@@ -65,4 +65,11 @@ public class Drink extends AbstractEntity {
         this.rating = rating;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }
