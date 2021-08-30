@@ -70,6 +70,11 @@ public class Drink extends AbstractEntity {
     }
 
 <<<<<<< HEAD
+//    public void setImagePath(String imagePath) {
+//        this.imagePath = imagePath;
+//    }
+=======
+<<<<<<< HEAD
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
@@ -78,4 +83,5 @@ public class Drink extends AbstractEntity {
 //        this.imagePath = imagePath;
 //    }
 >>>>>>> Liz_branch
+>>>>>>> main
 }
