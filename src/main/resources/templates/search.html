@@ -6,11 +6,11 @@
 
 <div th:replace="fragments :: page-header"></div>
 
+<div th:replace="fragments :: page-title"></div>
+
 <div class="container body-content">
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <br>
 
     <form th:action="@{/search/results}" method = "post">
         <div class="input-group w-50">
