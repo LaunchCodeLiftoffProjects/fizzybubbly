@@ -41,11 +41,15 @@
         <tbody>
             <tr th:each="drink : ${drinks}">
 
+
                 <td>
                     <a th:href="@{/productPage(id=${drink.getId()})}"
                        th:text="${drink.brand + ' ' + drink.flavor}">
                     </a>
                 </td>
+
+                <td th:text="${drink.brand + ' ' + drink.flavor}"></td>
+
                 <td th:text="${drink.carbonation}"></td>
                 <td th:text="${drink.rating + '/5'}"></td>
             </tr>

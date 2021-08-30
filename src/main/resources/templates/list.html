@@ -13,6 +13,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th>Image</th>
         <th>Brand</th>
         <th>Flavor</th>
         <th>Carbonation</th>
@@ -22,7 +23,7 @@
 
 
     <tr th:each="drink : ${drinks}">
-        <td><img th:src="@{${drink.image_path}}" width = "120"></td>
+
         <td th:text="${drink.brand}"></td>
         <td th:text="${drink.flavor}"></td>
         <td th:text="${drink.carbonation}"></td>

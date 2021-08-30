@@ -29,7 +29,7 @@ public class ProductPageController {
         Optional<Drink> result = drinkRepository.findById(drinkId);
 
         Drink drink = result.get();
-        model.addAttribute("title", drink);
+        model.addAttribute("title", drink.toString());
         model.addAttribute("drink", drink);
 
         return "productPage?id=${drinkId}";
