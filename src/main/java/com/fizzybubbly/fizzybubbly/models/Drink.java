@@ -69,19 +69,9 @@ public class Drink extends AbstractEntity {
         return imagePath;
     }
 
-<<<<<<< HEAD
-//    public void setImagePath(String imagePath) {
-//        this.imagePath = imagePath;
-//    }
-=======
-<<<<<<< HEAD
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-=======
-//    public void setImagePath(String imagePath) {
-//        this.imagePath = imagePath;
-//    }
->>>>>>> Liz_branch
->>>>>>> main
+
+
 }
