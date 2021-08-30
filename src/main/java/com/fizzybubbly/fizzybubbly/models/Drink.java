@@ -9,8 +9,7 @@ public class Drink extends AbstractEntity {
     @ManyToOne
     private Brand brand;
 
-    @ManyToOne
-    private Flavor flavor;
+    private String flavor;
 
     private String carbonation;
 
@@ -18,7 +17,7 @@ public class Drink extends AbstractEntity {
 
     private String imagePath;
 
-    public Drink(Brand brand, Flavor flavor, String carbonation, int rating, String imagePath) {
+    public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath) {
         this.brand = brand;
         this.flavor = flavor;
         this.carbonation = carbonation;
@@ -30,7 +29,7 @@ public class Drink extends AbstractEntity {
 
     @Override
     public String toString() {
-        return brand + " " + flavor;
+        return brand.getName() + " " + flavor;
     }
 
     public String getBrand() {
@@ -42,10 +41,10 @@ public class Drink extends AbstractEntity {
     }
 
     public String getFlavor() {
-        return flavor.getName();
+        return flavor;
     }
 
-    public void setFlavor(Flavor flavor) {
+    public void setFlavor(String flavor) {
         this.flavor = flavor;
     }
 
@@ -65,4 +64,11 @@ public class Drink extends AbstractEntity {
         this.rating = rating;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }

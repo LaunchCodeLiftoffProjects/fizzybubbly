@@ -12,7 +12,8 @@
     <h5 th:text="${'Carbonation: ' + drink.carbonation}"></h5>
     <h5 th:text="${'Rating: ' + drink.rating + '/5'}"></h5>
 
-    <img src="/images/seltzers/polar/blackcherry.png" width = "60" height = "60">
+    <img th:src="@{${drink.imagePath}}" width="120"/>
+
 
 </div>
 
