@@ -19,6 +19,12 @@ public class ProductPageController {
     private DrinkRepository drinkRepository;
 
     @GetMapping
+    public String displayDrinkList(Model model) {
+        model.addAttribute("drinks", drinkRepository.findAll());
+        return "productPage";
+    }
+
+    @GetMapping (params = {"drinkId"})
     public String displayDrinkDetails(@RequestParam(required = false) Integer drinkId, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
 
@@ -26,7 +32,7 @@ public class ProductPageController {
         model.addAttribute("title", drink);
         model.addAttribute("drink", drink);
 
-        return "productPage";
+        return "productPage?id=${drinkId}";
 
     }
 }
