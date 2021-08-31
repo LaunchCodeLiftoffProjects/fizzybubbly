@@ -32,4 +32,11 @@ public class AuthenticationController {
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
     }
+
+//    @GetMapping("/register")
+//    public String displayRegistrationForm(Model model) {
+//        model.addAttribute(new RegisterFormDTO());
+//        model.addAttribute("title", "Register");
+//        return "register";
+//    }
 }
