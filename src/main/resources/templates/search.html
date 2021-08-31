@@ -33,6 +33,7 @@
 
 
         <thead>
+
         <tr>
             <td scope="col"></td>
             <th scope="col">Drink</th>
@@ -44,6 +45,7 @@
             <tr th:each="drink : ${drinks}">
                 <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>
                 <td th:text="${drink.brand + ' ' + drink.flavor}"></td>
+
                 <td th:text="${drink.carbonation}"></td>
                 <td th:text="${drink.rating + '/5'}"></td>
             </tr>
