@@ -5,50 +5,17 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
-<br>
-<h2 class="text-center p-4 mt-5">seltz info</h2>
+
 <div class="container body-content">
 
-    <h5 class="text-center" th:if="${drinks}"><span th:text="${drinks.size()}"></span> seltzers to browse:</h5>
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h5 th:text="${'Carbonation: ' + drink.carbonation}"></h5>
+    <h5 th:text="${'Rating: ' + drink.rating + '/5'}"></h5>
+
+    <img th:src="@{${drink.imagePath}}" width="120"/>
 
 
-    <tbody>
-    <tr th:each="drink : ${drinks}">
-        <td>
-            <a th:href="@{/productPage(id=${drink.getId()})}"
-               th:text="${drink.brand + ' ' + drink.flavor}">
-            </a>
-        </td>
-        <td th:text="${drink.carbonation}"></td>
-        <td th:text="${drink.rating + '/5'}"></td>
-
-
-    </tr>
-    </tbody>
-    <br>
 </div>
-
-
-
-    <h2 class="text-center p-4 mt-5">seltz reviews</h2>
-
-    <div class="container p-4 w-50">
-
-        <p class="text-justify text-left">1. Hold on to yer taste buds, folks, 'cause this wild
-            bubbly is about to knock yer knickers off...Yeehaw!
-        </p>
-
-        <p class="text-justify text-left">2. A classically refined seltzer for only the most discerning
-            of palettes, this sparkly rare gem will delight you from head to toe.
-        </p>
-
-        <p class="text-justify text-left">3. I'll tell you straight up that this one is on my naughty list,
-            and not in a good way. It stinks like a skunk and is flat as a pancake. The flavor profile has
-            you thinking, "is this something I should wash my car with or what?"
-        </p>
-
-    </div>
-
 
 </body>
 </html>

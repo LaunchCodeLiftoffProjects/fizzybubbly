@@ -43,12 +43,10 @@
 
 
                 <td>
-                    <a th:href="@{/productPage(id=${drink.getId()})}"
+                    <a th:href="@{/productPage(drinkId=${drink.getId()})}"
                        th:text="${drink.brand + ' ' + drink.flavor}">
                     </a>
                 </td>
-
-                <td th:text="${drink.brand + ' ' + drink.flavor}"></td>
 
                 <td th:text="${drink.carbonation}"></td>
                 <td th:text="${drink.rating + '/5'}"></td>
