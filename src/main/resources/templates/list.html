@@ -11,6 +11,7 @@
 </div>
 
 <table class="table table-striped">
+<!--    <link rel="stylesheet" href="mystyle.css">-->
     <thead>
     <tr>
         <th>Image</th>
@@ -23,6 +24,8 @@
 
 
     <tr th:each="drink : ${drinks}">
+
+        <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>
 
         <td th:text="${drink.brand}"></td>
         <td th:text="${drink.flavor}"></td>
