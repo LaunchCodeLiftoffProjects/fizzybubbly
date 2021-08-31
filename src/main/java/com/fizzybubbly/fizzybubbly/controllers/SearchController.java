@@ -32,7 +32,8 @@ public class SearchController {
         } else {
             drinks = DrinkData.findByValue(searchTerm, drinkRepository.findAll(Sort.by("brand").ascending().and(Sort.by("flavor").ascending())));
         }
-        model.addAttribute("title", "find a seltz: " + searchTerm);
+        model.addAttribute("title", "find a seltz");
+        model.addAttribute("searchTerm", searchTerm);
         model.addAttribute("drinks", drinks);
 
         return "search";

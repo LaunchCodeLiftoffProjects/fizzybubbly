@@ -19,7 +19,7 @@
 
 <div th:fragment="page-header" class="container-fluid" style="background-color:#9ed0ff;">
     <nav class="navbar navbar-expand-sm navbar-light">
-        <a href="/" class="navbar-brand mb-1">
+        <a href="/" class="navbar-brand">
             fizzybubbly</a>
         <button
                 class="navbar-toggler"
@@ -54,6 +54,10 @@
             </ul>
         </div>
     </nav>
+</div>
+
+<div th:fragment="page-title">
+    <h2 class="text-center p-4 mt-3" th:text="${title}"></h2>
 </div>
 
 </body>
