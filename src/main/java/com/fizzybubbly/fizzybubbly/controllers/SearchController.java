@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("search")
@@ -18,25 +19,42 @@ public class SearchController {
     @Autowired
     private DrinkRepository drinkRepository;
 
+    static HashMap<String, String> fieldChoices = new HashMap<>();
+
+    public SearchController () {
+        fieldChoices.put("all", "All");
+        fieldChoices.put("heavy", "Heavy");
+        fieldChoices.put("medium", "Medium");
+        fieldChoices.put("light", "Light");
+    }
+
     @RequestMapping
     public String search(Model model) {
+        for (Drink drink : drinkRepository.findAll()) {
+            String key = drink.getBrand().toLowerCase();
+            String value = drink.getBrand();
+            fieldChoices.put(key, value);
+        }
         model.addAttribute("title", "find a seltz");
+        model.addAttribute("fieldChoices", fieldChoices);
         return "search";
     }
 
     @PostMapping("results")
-    public String displaySearchResults(Model model, @RequestParam String searchTerm){
+    public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchTerm) {
         Iterable<Drink> drinks;
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
-            drinks = drinkRepository.findAll(Sort.by("brand").ascending().and(Sort.by("flavor").ascending()));
+//        Sort sortOrder = Sort.by("drink.carbonation");
+        if (searchTerm.toLowerCase().equals("all")){
+            drinks = drinkRepository.findAll();
         } else {
-            drinks = DrinkData.findByValue(searchTerm, drinkRepository.findAll(Sort.by("brand").ascending().and(Sort.by("flavor").ascending())));
+            drinks = DrinkData.findByFieldAndValue(searchField, searchTerm, drinkRepository.findAll());
         }
-        model.addAttribute("title", "find a seltz");
-        model.addAttribute("searchTerm", searchTerm);
+        model.addAttribute("title", "find a seltz: " + searchTerm);
+        model.addAttribute("fieldChoices", fieldChoices);
         model.addAttribute("drinks", drinks);
 
         return "search";
     }
 
 }
+
