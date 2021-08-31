@@ -27,5 +27,10 @@ public class Brand extends AbstractEntity{
         this.name = name;
     }
 
+    public List<Drink> getDrinks() { return drinks; }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -10,11 +10,17 @@
 <div>
     <form method="post">
         <div class="form-group">
-            <label>
-                <input type="text" class="form-control">
+            <label>Brand:
+                <select th:field="${drink.brand}" class="form-control">
+                    <option th:each="brand : ${brands}"
+                            th:value="${brand.id}"
+                            th:text="${brand.name}"
+                    ></option>
+                </select>
             </label>
         </div>
-
+    </form>
+</div>
 
 </body>
 </html>
