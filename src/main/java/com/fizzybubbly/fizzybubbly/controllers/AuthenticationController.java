@@ -33,7 +33,7 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-//    @GetMapping("/register")
+//    @GetMapping("/signup")
 //    public String displayRegistrationForm(Model model) {
 //        model.addAttribute(new RegisterFormDTO());
 //        model.addAttribute("title", "Register");
