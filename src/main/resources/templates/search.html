@@ -41,7 +41,7 @@
         <tbody>
             <tr th:each="drink : ${drinks}">
 
-
+<!--hello this is stupid-->
                 <td>
                     <a th:href="@{/productPage(drinkId=${drink.getId()})}"
                        th:text="${drink.brand + ' ' + drink.flavor}">
