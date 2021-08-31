@@ -15,7 +15,7 @@ public class Drink extends AbstractEntity {
 
     private int rating;
 
-    private String imagePath;
+    public String imagePath;
 
     public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath) {
         this.brand = brand;
@@ -25,7 +25,8 @@ public class Drink extends AbstractEntity {
         this.imagePath = imagePath;
     }
 
-    public Drink() {}
+    public Drink() {
+    }
 
     @Override
     public String toString() {
@@ -71,4 +72,6 @@ public class Drink extends AbstractEntity {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+
 }
