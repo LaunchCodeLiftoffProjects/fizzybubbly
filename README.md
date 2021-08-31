@@ -1,6 +1,6 @@
 # fizzybubbly
 
-###to get the database up and running, drop all the tables in the schema (including the Hibernate table), re-run the app so Hibernate can set the tables up and establish relationships, and then import the CSV files, keeping in mind that the columns need to match
+### to get the database up and running, drop all the tables in the schema (including the Hibernate table), re-run the app so Hibernate can set the tables up and establish relationships, and then import the CSV files, keeping in mind that the columns need to match
 
 ## Overview
 
