@@ -4,11 +4,11 @@ import com.fizzybubbly.fizzybubbly.models.Drink;
 import com.fizzybubbly.fizzybubbly.models.DrinkData;
 import com.fizzybubbly.fizzybubbly.models.data.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 
@@ -52,6 +52,8 @@ public class SearchController {
         model.addAttribute("title", "find a seltz: " + searchTerm);
         model.addAttribute("fieldChoices", fieldChoices);
         model.addAttribute("drinks", drinks);
+        model.addAttribute("searchTerm", searchTerm);
+        model.addAttribute("searchField", searchField);
 
         return "search";
     }
