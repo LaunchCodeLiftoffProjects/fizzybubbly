@@ -33,6 +33,7 @@ public class AddController {
     @PostMapping
     public String processAddDrink(@ModelAttribute Drink newDrink, Model model) {
         model.addAttribute("title", "success");
+        drinkRepository.save(newDrink);
         return "success";
     }
 
