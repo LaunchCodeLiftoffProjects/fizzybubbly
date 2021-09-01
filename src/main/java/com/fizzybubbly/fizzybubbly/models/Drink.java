@@ -2,12 +2,18 @@ package com.fizzybubbly.fizzybubbly.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Drink extends AbstractEntity {
 
     @ManyToOne
     private Brand brand;
+
+    @OneToMany(mappedBy = "drink")
+    private final List<UserReviews> userReviews = new ArrayList<>();
 
     private String flavor;
 
@@ -16,6 +22,7 @@ public class Drink extends AbstractEntity {
     private int rating;
 
     public String imagePath;
+
 
     public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath) {
         this.brand = brand;
@@ -26,6 +33,15 @@ public class Drink extends AbstractEntity {
     }
 
     public Drink() {
+    }
+
+    public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath, UserReviews userReviews) {
+        this.brand = brand;
+        this.flavor = flavor;
+        this.carbonation = carbonation;
+        this.rating = rating;
+        this.imagePath = imagePath;
+        this.userReviews = userReviews;
     }
 
     @Override
@@ -73,5 +89,7 @@ public class Drink extends AbstractEntity {
         this.imagePath = imagePath;
     }
 
-
+    public List<UserReviews> getUserReviews() {
+        return userReviews;
+    }
 }
