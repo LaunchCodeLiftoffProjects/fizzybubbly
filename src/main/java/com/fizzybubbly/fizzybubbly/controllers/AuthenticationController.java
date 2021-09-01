@@ -43,40 +43,40 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    @GetMapping("/register")
-    public String displayRegistrationForm(Model model) {
+    @GetMapping("/signUp")
+    public String displaySignUpForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
-        model.addAttribute("title", "Register");
-        return "register";
+        model.addAttribute("title", "Sign Up");
+        return "signUp";
     }
 
-    @PostMapping("/register")
-    public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
+    @PostMapping("/signUp")
+    public String processRegisterForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
                                           Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Register");
-            return "register";
+            model.addAttribute("title", "Sign Up");
+            return "signUp";
         }
 
         User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
 
         if (existingUser != null) {
-            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            model.addAttribute("title", "Register");
-            return "register";
+            errors.rejectValue("username", "username.already exists", "A user with that username already exists");
+            model.addAttribute("title", "Sign Up");
+            return "signUp";
         }
 
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-            model.addAttribute("title", "Register");
-            return "register";
+            model.addAttribute("title", "Sign Up");
+            return "signUp";
         }
 
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        User newUser = new User(registerFormDTO.getFirstName(), registerFormDTO.getLastName(), registerFormDTO.getEmail(), registerFormDTO.getUsername(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
