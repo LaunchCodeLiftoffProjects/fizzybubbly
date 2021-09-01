@@ -16,7 +16,7 @@ id,brand_id,flavor,carbonation,rating,image_path
 15,5,Unflavored,Heavy,3,/images/seltzers/canada-dry/unflavored.png
 16,5,Lemon Lime,Heavy,3,/images/seltzers/canada-dry/lemonlime.png
 17,5,Mandarin Orange,Heavy,4,/images/seltzers/canada-dry/mandarinorange.png
-18,5,Raspberry,Heavy,4,/images/seltzers/canada-dry/rasberry.png
+18,5,Raspberry,Heavy,4,/images/seltzers/canada-dry/raspberry.png
 19,6,Lime,Medium,4,/images/seltzers/lacroix/lime.jpg
 20,6,Blackberry Cucumber,Medium,3,/images/seltzers/lacroix/blackberrycucumber.png
 21,6,Melon Grapefruit,Medium,2,/images/seltzers/lacroix/melongrapefruit.png
