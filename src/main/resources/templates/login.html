@@ -7,25 +7,28 @@
 
 <div th:replace="fragments :: page-title"></div>
 
-<div class="container body-content">
+<div class="d-flex justify-content-center">
     <form method="post">
-        <div class="form-group">
-            <label th:for="username">Username
+        <div class="mb-3">
+            <label class="form-label" th:for="username">Username
                 <input class="form-control" th:field="${loginFormDTO.username}">
             </label>
             <p class="error" th:errors="${loginFormDTO.username}"></p>
         </div>
-        <div class="form-group">
-            <label>Password
+        <div class="mb-3">
+            <label class="form-label">Password
                 <input class="form-control" th:field="${loginFormDTO.password}" type="password">
             </label>
             <p class="error" th:errors="${loginFormDTO.password}"></p>
         </div>
-
-        <input type="submit" class="btn btn-primary" value="Log In" />
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Log In" />
+        </div>
+        <div class="mb-3">
+            <p>Don't have an account? <a href="/signUp">Sign Up! 😊</a></p>
+        </div>
     </form>
 
-    <p>Don't have an account? <a href="/signUp">Sign Up! 😊</a></p>
 </div>
 
 
