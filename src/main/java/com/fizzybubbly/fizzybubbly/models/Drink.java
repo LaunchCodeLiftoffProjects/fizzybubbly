@@ -36,6 +36,7 @@ public class Drink extends AbstractEntity {
     public Drink() {
     }
 
+
     public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath, UserReviews userReviews) {
         this.brand = brand;
         this.flavor = flavor;
@@ -49,6 +50,7 @@ public class Drink extends AbstractEntity {
     public String toString() {
         return brand.getName() + " " + flavor;
     }
+
 
     public String getBrand() {
         return brand.getName();

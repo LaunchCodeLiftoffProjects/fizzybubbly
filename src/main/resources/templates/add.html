@@ -5,12 +5,39 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<h2 class="text-center p-4 mt-5">add a seltz</h2>
+<div th:replace="fragments :: page-title"></div>
 
-<div class="container p-4 w-50">
-
-
-
+<div class="d-flex justify-content-center">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Brand:
+                <select name="brand" class="form-select">
+                    <option th:each="brand : ${brands}"
+                            th:value="${brand.id}"
+                            th:text="${brand.name}"
+                    ></option>
+                </select>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Flavor:
+                <input type="text" th:field="${drink.flavor}" class="form-control">
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Carbonation:
+                <input type="text" th:field="${drink.carbonation}" class="form-control">
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Rating:
+                <input type="number" th:field="${drink.rating}" class="form-control">
+            </label>
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Create" class="btn btn-primary">
+        </div>
+    </form>
 </div>
 
 </body>
