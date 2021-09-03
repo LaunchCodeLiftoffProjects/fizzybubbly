@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("review")
-public class UserReviewsController {
+public class ReviewController {
 
     @GetMapping
     public String review(Model model) {

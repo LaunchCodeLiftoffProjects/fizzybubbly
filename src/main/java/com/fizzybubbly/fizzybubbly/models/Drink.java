@@ -12,8 +12,8 @@ public class Drink extends AbstractEntity {
     @ManyToOne
     private Brand brand;
 
-//    @OneToMany(mappedBy = "drink")
-//    private final List<UserReviews> userReview = new ArrayList<>();
+    @OneToMany(mappedBy = "drink")
+    private List<Review> reviews = new ArrayList<>();
 
     private String flavor;
 
@@ -23,7 +23,6 @@ public class Drink extends AbstractEntity {
 
     public String imagePath;
 
-    private UserReviews userReviews;
 
     public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath) {
         this.brand = brand;
@@ -37,13 +36,13 @@ public class Drink extends AbstractEntity {
     }
 
 
-    public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath, UserReviews userReviews) {
+    public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath, List<Review> reviews) {
         this.brand = brand;
         this.flavor = flavor;
         this.carbonation = carbonation;
         this.rating = rating;
         this.imagePath = imagePath;
-        this.userReviews = userReviews;
+        this.reviews = reviews;
     }
 
     @Override
@@ -92,11 +91,11 @@ public class Drink extends AbstractEntity {
         this.imagePath = imagePath;
     }
 
-    public UserReviews getUserReviews() {
-        return userReviews;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setUserReviews(UserReviews userReviews) {
-        this.userReviews = userReviews;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
