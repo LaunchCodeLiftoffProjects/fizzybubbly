@@ -1,11 +1,11 @@
 id,drink_id,user_id,review
-1,01,001,excellent!
-2,02,002,meh
-3,03,003,awesome sauce
-4,04,004,refreshing?
-5,05,005,so-so
-6,06,006,disappointing
-7,07,007,perfect
-8,08,008,yaaas!
-9,09,009,superb
-10,10,010,scrumptious
+1,1,001,excellent!
+2,1,002,meh
+3,1,003,awesome sauce
+4,2,004,refreshing?
+5,2,005,so-so
+6,3,006,disappointing
+7,3,007,perfect
+8,3,008,yaaas!
+9,4,009,superb
+10,4,010,scrumptious
