@@ -6,18 +6,15 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Review extends AbstractEntity {
 
-    private int userId;
-
-    private int drinkId;
-
     private String review;
 
     @ManyToOne
     private Drink drink;
 
-    public Review(int userId, int drinkId, String review) {
-        this.userId = userId;
-        this.drinkId = drinkId;
+    @ManyToOne
+    private User user;
+
+    public Review(String review) {
         this.review = review;
     }
 
@@ -31,11 +28,4 @@ public class Review extends AbstractEntity {
         this.review = review;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public int getDrinkId() {
-        return drinkId;
-    }
 }
