@@ -1,33 +1,33 @@
-id,brand_id,flavor,carbonation,rating,image_path,review_id
-1,1,Black Cherry,Heavy,5,/images/seltzers/polar/blackcherry.png,1
-2,1,Lime,Heavy,4,/images/seltzers/polar/lime.png,1
-3,1,Lemon,Heavy,4,/images/seltzers/polar/polar-lemon.jpg,1
-4,2,Black Cherry,Medium,5,/images/seltzers/waterloo/blackcherry.jpg,2
-5,2,Grapefruit,Medium,4,images/seltzers/waterloo/grapefruit.png,2
-6,2,Watermelon,Medium,3,/images/seltzers/waterloo/watermelon.png,2
-7,3,Orange Mango,Medium,3,/images/seltzers/spindrift/orange-mango.png,3
-8,3,Raspberry Lime,Medium,4,/images/seltzers/spindrift/rasberrylime.png,3
-9,3,Cucumber,Medium,2,/images/seltzers/spindrift/cucumber.png,3
-10,3,Blackberry,Medium,4,/images/seltzers/spindrift/blackberry.png,4
-11,4,Lime,Heavy,5,/images/seltzers/hals/lime.png,4
-12,4,Blackberry,Heavy,4,/images/seltzers/hals/blackberry.png,4
-13,4,Vanilla Cream,Heavy,3,/images/seltzers/hals/vanillacream.png,5
-14,4,Watermelon,Heavy,2,/images/seltzers/hals/watermelon.png,5
-15,5,Unflavored,Heavy,3,/images/seltzers/canada-dry/unflavored.png,5
-16,5,Lemon Lime,Heavy,3,/images/seltzers/canada-dry/lemonlime.png,6
-17,5,Mandarin Orange,Heavy,4,/images/seltzers/canada-dry/mandarinorange.png,6
-18,5,Raspberry,Heavy,4,/images/seltzers/canada-dry/rasberry.png,6
-19,6,Lime,Medium,4,/images/seltzers/lacroix/lime.jpg,7
-20,6,Blackberry Cucumber,Medium,3,/images/seltzers/lacroix/blackberrycucumber.png,7
-21,6,Melon Grapefruit,Medium,2,/images/seltzers/lacroix/melongrapefruit.png,7
-22,6,Tangerine,Medium,2,/images/seltzers/lacroix/keylime.png,8
-23,6,Cran-Raspberry,Medium,3,/images/seltzers/lacroix/cran-rasberry.png,8
-24,6,Cherry Lime,Medium,5,/images/seltzers/lacroix/cherrylime.png,8
-25,6,Apple Cranberry,Medium,4,/images/seltzers/lacroix/applecran.png,9
-26,6,Peach Pear,Medium,4,/images/seltzers/lacroix/peachpear.png,9
-27,6,Berry,Medium,3,/images/seltzers/lacroix/berry.png,9
-28,6,Tangerine,Medium,3,/images/seltzers/lacroix/tangerine.png,10
-29,6,Apricot,Medium,4,/images/seltzers/lacroix/apricot.png,10
-30,6,Kiwi Watermelon,Medium,2,/images/seltzers/lacroix/kiwiwatermelon.png,10
-31,6,Lemon Lime,Medium,3,/images/seltzers/lacroix/lacola.png,1
-32,6,Unflavored,Medium,4,/images/seltzers/lacroix/unflavored.png,2
+id,brand_id,flavor,carbonation,rating,image_path
+1,1,Black Cherry,Heavy,5,/images/seltzers/polar/blackcherry.png
+2,1,Lime,Heavy,4,/images/seltzers/polar/lime.png
+3,1,Lemon,Heavy,4,/images/seltzers/polar/polar-lemon.jpg
+4,2,Black Cherry,Medium,5,/images/seltzers/waterloo/blackcherry.jpg
+5,2,Grapefruit,Medium,4,/images/seltzers/waterloo/grapefruit.png
+6,2,Watermelon,Medium,3,/images/seltzers/waterloo/watermelon.png
+7,3,Orange Mango,Medium,3,/images/seltzers/spindrift/orange-mango.png
+8,3,Raspberry Lime,Medium,4,/images/seltzers/spindrift/raspberrylime.png
+9,3,Cucumber,Medium,2,/images/seltzers/spindrift/cucumber.png
+10,3,Blackberry,Medium,4,/images/seltzers/spindrift/blackberry.png
+11,4,Lime,Heavy,5,/images/seltzers/hals/lime.png
+12,4,Blackberry,Heavy,4,/images/seltzers/hals/blackberry.png
+13,4,Vanilla Cream,Heavy,3,/images/seltzers/hals/vanillacream.png
+14,4,Watermelon,Heavy,2,/images/seltzers/hals/watermelon.png
+15,5,Unflavored,Heavy,3,/images/seltzers/canada-dry/unflavored.png
+16,5,Lemon Lime,Heavy,3,/images/seltzers/canada-dry/lemonlime.png
+17,5,Mandarin Orange,Heavy,4,/images/seltzers/canada-dry/mandarinorange.png
+18,5,Raspberry,Heavy,4,/images/seltzers/canada-dry/raspberry.png
+19,6,Lime,Medium,4,/images/seltzers/lacroix/lime.jpg
+20,6,Blackberry Cucumber,Medium,3,/images/seltzers/lacroix/blackberrycucumber.png
+21,6,Melon Grapefruit,Medium,2,/images/seltzers/lacroix/melongrapefruit.png
+22,6,Tangerine,Medium,2,/images/seltzers/lacroix/keylime.png
+23,6,Cran-Raspberry,Medium,3,/images/seltzers/lacroix/cran-raspberry.png
+24,6,Cherry Lime,Medium,5,/images/seltzers/lacroix/cherrylime.png
+25,6,Apple Cranberry,Medium,4,/images/seltzers/lacroix/applecran.png
+26,6,Peach Pear,Medium,4,/images/seltzers/lacroix/peachpear.png
+27,6,Berry,Medium,3,/images/seltzers/lacroix/berry.png
+28,6,Tangerine,Medium,3,/images/seltzers/lacroix/tangerine.png
+29,6,Apricot,Medium,4,/images/seltzers/lacroix/apricot.png
+30,6,Kiwi Watermelon,Medium,2,/images/seltzers/lacroix/kiwiwatermelon.png
+31,6,Lemon Lime,Medium,3,/images/seltzers/lacroix/lacola.png
+32,6,Unflavored,Medium,4,/images/seltzers/lacroix/unflavored.png
