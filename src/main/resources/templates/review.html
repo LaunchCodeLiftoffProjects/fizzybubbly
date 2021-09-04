@@ -6,8 +6,29 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<h2 class="text-center p-4 mt-5">User Reviews</h2>
-
+<h2 class="text-center p-4 mt-5">Write a Review</h2>
+<div class="d-flex justify-content-center">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Drink:
+                <select name="drink" class="form-select">
+                    <option th:each="drink : ${drinks}"
+                            th:value="${drink.id}"
+                            th:text="${drink.toString()}"
+                    ></option>
+                </select>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Review:
+                <input type="text" th:field="${review.review}" class="form-control">
+            </label>
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Add" class="btn btn-primary">
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
