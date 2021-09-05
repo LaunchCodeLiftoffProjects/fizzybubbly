@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("productPage")
-public class ProductPageController {
+@RequestMapping("drink")
+public class DrinkController {
 
     @Autowired
     private DrinkRepository drinkRepository;
 
     @GetMapping
-    public String displayDrinkDetails(@RequestParam(required = false) Integer drinkId, Model model) {
-        Optional<Drink> result = drinkRepository.findById(drinkId);
+    public String displayDrinkDetails(@RequestParam(required = false) Integer id, Model model) {
+        Optional<Drink> result = drinkRepository.findById(id);
 
         Drink drink = result.get();
         model.addAttribute("title", drink.toString());
         model.addAttribute("drink", drink);
 
-        return "productPage";
+        return "drink";
 
     }
 }

@@ -76,7 +76,7 @@
             <tr th:each="drink : ${drinks}">
                 <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>
                 <td>
-                    <a th:href="@{/productPage(drinkId=${drink.getId()})}"
+                    <a th:href="@{/drink(id=${drink.getId()})}"
                        th:text="${drink.brand + ' ' + drink.flavor}">
                     </a>
                 </td>
