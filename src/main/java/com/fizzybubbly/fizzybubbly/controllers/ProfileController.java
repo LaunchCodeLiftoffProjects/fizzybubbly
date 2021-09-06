@@ -18,9 +18,9 @@ public class ProfileController {
 
     @GetMapping
     public String profile(Model model, HttpSession session) {
-        model.addAttribute("title", "your profile");
         User user = authenticationController.getUserFromSession(session);
-        System.out.println(user.getEmail());
+        model.addAttribute("title", user.getUsername());
+        model.addAttribute(user);
         return "profile";
     }
 
