@@ -29,10 +29,6 @@ test {
 	useJUnitPlatform()
 }
 
-//jar {
-//	manifest {
-//		attributes(
-//				'main': 'com.fizzybubbly.fizzybubbly.FizzybubblyApplication'
-//		)
-//	}
-//}
+springBoot {
+	mainClass = 'com.fizzybubbly.fizzybubbly.FizzybubblyApplication'
+}
