@@ -28,6 +28,14 @@ public class Review extends AbstractEntity {
         this.review = review;
     }
 
+    public Drink getDrink() {
+        return drink;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public String toString() {
         return review;
