@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.FlashMapManager;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +25,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/about", "/login", "/productPage", "/search", "/signUp", "/logout");
+    private static final List<String> whitelist = Arrays.asList("/about", "/drink", "/images", "/login", "/productPage", "/search", "/signUp", "/styles.css", "/logout");
 
     private static boolean isWhitelisted(String path) {
         for (String pathRoot : whitelist) {
@@ -52,6 +52,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
 
         // The user is logged in
         if (user != null) {
+
             return true;
         }
 
@@ -64,9 +65,19 @@ public class AuthenticationFilter implements HandlerInterceptor {
         return false;
     }
 
-}
+    @Override
+    public void postHandle(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Object handler,
+            ModelAndView modelAndView) throws Exception {
 
-//FlashMap flashMap = new FlashMap();
-//flashMap.put("ERROR_MESSAGE", "Please log in to access this feature.");
-//FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
-//flashMapManager.saveOutputFlashMap(flashMap, request, response);
+        HttpSession session = request.getSession();
+        User user = authenticationController.getUserFromSession(session);
+
+        if (user != null) {
+            modelAndView.addObject("user", user);
+        }
+    }
+
+}

@@ -1,6 +1,5 @@
 package com.fizzybubbly.fizzybubbly.models;
 
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
