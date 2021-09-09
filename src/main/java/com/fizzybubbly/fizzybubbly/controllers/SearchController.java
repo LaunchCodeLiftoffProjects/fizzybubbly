@@ -49,7 +49,7 @@ public class SearchController {
         } else {
             drinks = DrinkData.findByFieldAndValue(searchField, searchTerm, drinkRepository.findAll());
         }
-        model.addAttribute("title", "find a seltz: " + searchTerm);
+        model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
         model.addAttribute("drinks", drinks);
         model.addAttribute("searchTerm", searchTerm);

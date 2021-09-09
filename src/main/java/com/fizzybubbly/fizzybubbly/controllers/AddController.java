@@ -34,7 +34,7 @@ public class AddController {
     @PostMapping
     public String processAddDrink(@ModelAttribute Drink newDrink, Model model) {
         model.addAttribute("title", "success");
-        model.addAttribute("addSuccess", "Drink successfully added");
+        model.addAttribute("addSuccess", "seltzer successfully added");
         drinkRepository.save(newDrink);
         return "add/success";
     }
@@ -50,7 +50,7 @@ public class AddController {
     @PostMapping("addBrand")
     public String processAddBrand(@ModelAttribute Brand newBrand, Model model) {
         model.addAttribute("title", "success");
-        model.addAttribute("addSuccess", "Brand successfully added");
+        model.addAttribute("addSuccess", "brand successfully added");
         brandRepository.save(newBrand);
         return "add/success";
     }
