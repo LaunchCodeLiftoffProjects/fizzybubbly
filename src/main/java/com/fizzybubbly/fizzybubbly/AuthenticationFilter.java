@@ -25,24 +25,42 @@ public class AuthenticationFilter implements HandlerInterceptor {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> whitelist = Arrays.asList("/about", "/drink", "/images", "/login", "/productPage", "/search", "/signUp", "/styles.css", "/logout");
+//    private static final List<String> whitelist = Arrays.asList("/about", "/drink", "/images", "/login", "/productPage", "/search", "/signUp", "/styles.css", "/logout");
 
-    private static boolean isWhitelisted(String path) {
-        for (String pathRoot : whitelist) {
-            if (path.startsWith(pathRoot)) {
+    private static final List<String> blacklist = Arrays.asList("/add");
+
+//    private static boolean isWhitelisted(String path) {
+//        for (String pathRoot : whitelist) {
+//            if (path.startsWith(pathRoot)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
+    private static boolean notBlacklisted(String path) {
+        for (String pathRoot : blacklist)  {
+            if (!path.startsWith (pathRoot)) {
                 return true;
             }
         }
         return false;
     }
 
+
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws IOException {
 
+//         Don't require sign-in for whitelisted pages
+//        if (isWhitelisted(request.getRequestURI())) {
+//         returning true indicates that the request may proceed
+//            return true;
+//        }
+
         // Don't require sign-in for whitelisted pages
-        if (isWhitelisted(request.getRequestURI())) {
+        if (notBlacklisted(request.getRequestURI())) {
             // returning true indicates that the request may proceed
             return true;
         }
@@ -56,7 +74,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
             return true;
         }
 
-        // The user is NOT logged in
+//        // The user is NOT logged in
         FlashMap flashMap = new FlashMap();
         flashMap.put("mustlogin", "Please log in to access this feature.");
         FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
