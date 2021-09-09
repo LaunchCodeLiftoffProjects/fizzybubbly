@@ -27,7 +27,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
 
 //    private static final List<String> whitelist = Arrays.asList("/about", "/drink", "/images", "/login", "/productPage", "/search", "/signUp", "/styles.css", "/logout");
 
-    private static final List<String> blacklist = Arrays.asList("/index");
+    private static final List<String> blacklist = Arrays.asList("/add");
 
 //    private static boolean isWhitelisted(String path) {
 //        for (String pathRoot : whitelist) {
@@ -53,9 +53,9 @@ public class AuthenticationFilter implements HandlerInterceptor {
                              HttpServletResponse response,
                              Object handler) throws IOException {
 
-        // Don't require sign-in for whitelisted pages
+//         Don't require sign-in for whitelisted pages
 //        if (isWhitelisted(request.getRequestURI())) {
-        // returning true indicates that the request may proceed
+//         returning true indicates that the request may proceed
 //            return true;
 //        }
 
