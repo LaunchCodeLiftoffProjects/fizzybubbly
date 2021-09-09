@@ -27,14 +27,20 @@ public class AddController {
         Drink drink = new Drink();
         model.addAttribute("drink", drink);
         model.addAttribute("brands", brandRepository.findAll());
-        return "add";
+        return "add/addDrink";
     }
 
     @PostMapping
     public String processAddDrink(@ModelAttribute Drink newDrink, Model model) {
         model.addAttribute("title", "success");
         drinkRepository.save(newDrink);
-        return "success";
+        return "add/success";
+    }
+
+    @GetMapping("addBrand")
+    public String displayAddBrand(Model model) {
+        model.addAttribute("title", "add brand");
+        return "add/addBrand";
     }
 
 }
