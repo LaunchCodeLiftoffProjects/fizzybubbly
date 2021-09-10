@@ -24,15 +24,21 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <form method="post">
+    <form action="#" th:action="@{/drink/{id} (id=${drink.id})}" th:object="${review}" method="post">
+
+        <input type="hidden" th:field="*{user}" class="form-control">
+        <input type="hidden" th:field="*{drink}" class="form-control">
+
         <div class="mb-3">
             <label class="form-label">Add Review:
-                <input type="text" class="form-control">
+                <input type="text" th:field="*{reviewText}" class="form-control">
             </label>
         </div>
+
         <div class="mb-3">
             <input type="submit" value="add review" class="btn btn-primary">
         </div>
+
     </form>
 </div>
 
