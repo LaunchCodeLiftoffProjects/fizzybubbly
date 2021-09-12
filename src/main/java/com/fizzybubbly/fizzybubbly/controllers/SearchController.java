@@ -30,11 +30,13 @@ public class SearchController {
 
     @RequestMapping
     public String search(Model model) {
+
         for (Drink drink : drinkRepository.findAll()) {
             String key = drink.getBrand().toLowerCase();
             String value = drink.getBrand();
             fieldChoices.put(key, value);
         }
+
         model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
         return "search";
@@ -42,6 +44,13 @@ public class SearchController {
 
     @GetMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchTerm) {
+
+        for (Drink drink : drinkRepository.findAll()) {
+            String key = drink.getBrand().toLowerCase();
+            String value = drink.getBrand();
+            fieldChoices.put(key, value);
+        }
+
         Iterable<Drink> drinks;
 //        Sort sortOrder = Sort.by("drink.carbonation");
         if (searchTerm.toLowerCase().equals("all")){
@@ -49,6 +58,7 @@ public class SearchController {
         } else {
             drinks = DrinkData.findByFieldAndValue(searchField, searchTerm, drinkRepository.findAll());
         }
+
         model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
         model.addAttribute("drinks", drinks);
