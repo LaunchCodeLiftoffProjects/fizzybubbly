@@ -6,7 +6,7 @@ import com.fizzybubbly.fizzybubbly.models.data.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -40,7 +40,7 @@ public class SearchController {
         return "search";
     }
 
-    @PostMapping("results")
+    @GetMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchTerm) {
         Iterable<Drink> drinks;
 //        Sort sortOrder = Sort.by("drink.carbonation");
@@ -49,7 +49,7 @@ public class SearchController {
         } else {
             drinks = DrinkData.findByFieldAndValue(searchField, searchTerm, drinkRepository.findAll());
         }
-        model.addAttribute("title", "find a seltz: " + searchTerm);
+        model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
         model.addAttribute("drinks", drinks);
         model.addAttribute("searchTerm", searchTerm);

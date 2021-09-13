@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content col-5 mt-5">
+    <div class="row align-items-center">
+        <div class="col">
+            <img class="img-fluid rounded mx-auto d-block" th:src="@{${drink.imagePath}}"/>
+        </div>
+        <div class="col">
+            <h1 th:text="${drink.brand}"></h1>
+            <h2 th:text="${drink.flavor}"></h2>
+            <h5 th:text="${'Carbonation: ' + drink.carbonation}"></h5>
+            <h5 th:text="${'Rating: ' + drink.rating + '/5'}"></h5>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <p>
+            Hey friend! Here at fizzybubbly we value your opinion. Please feel free to let everyone here
+            hear you. Please remember this website is seen by folks of all ages, from the very young at heart
+            to the very old at heart. Comment and enjoy responsibly here at fizzybubbly!
+        </p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>review</th>
+                <th>user</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="review: ${drink.reviews}">
+                <td th:text="${review.reviewText}"></td>
+                <td th:text="${review.user.getUsername}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="container">
+        <form action="#" th:action="@{/drink/{id} (id=${drink.id})}" th:object="${review}" method="post">
+
+            <input type="hidden" th:field="*{user}" class="form-control">
+            <input type="hidden" th:field="*{drink}" class="form-control">
+
+            <div class="mb-3 mt-5">
+                <label class="form-label">add your review:
+                    <textarea type="text" th:field="*{reviewText}" class="form-control mt-3" style="min-width: 200%" rows="4"></textarea>
+                </label>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" value="add review" class="btn btn-primary"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

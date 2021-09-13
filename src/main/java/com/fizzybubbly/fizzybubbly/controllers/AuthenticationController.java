@@ -11,6 +11,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -93,7 +94,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO,
-                                   Errors errors, HttpServletRequest request,
+                                   Errors errors, HttpServletRequest request, RedirectAttributes redirAttrs,
                                    Model model) {
 
         if (errors.hasErrors()) {
@@ -118,6 +119,8 @@ public class AuthenticationController {
         }
 
         setUserInSession(request.getSession(), theUser);
+        User currentUser = getUserFromSession(request.getSession());
+        redirAttrs.addFlashAttribute("hello", "Hello, " + currentUser.getFirstName());
 
         return "redirect:";
     }
@@ -125,7 +128,8 @@ public class AuthenticationController {
 
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request, RedirectAttributes redirAttrs){
+        redirAttrs.addFlashAttribute("logout", "You have logged out.");
         request.getSession().invalidate();
         return "redirect:/login";
     }

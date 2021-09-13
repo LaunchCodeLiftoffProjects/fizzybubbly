@@ -6,7 +6,7 @@ id,brand_id,flavor,carbonation,rating,image_path
 5,2,Grapefruit,Medium,4,/images/seltzers/waterloo/grapefruit.png
 6,2,Watermelon,Medium,3,/images/seltzers/waterloo/watermelon.png
 7,3,Orange Mango,Medium,3,/images/seltzers/spindrift/orange-mango.png
-8,3,Raspberry Lime,Medium,4,/images/seltzers/spindrift/rasberrylime.png
+8,3,Raspberry Lime,Medium,4,/images/seltzers/spindrift/raspberrylime.png
 9,3,Cucumber,Medium,2,/images/seltzers/spindrift/cucumber.png
 10,3,Blackberry,Medium,4,/images/seltzers/spindrift/blackberry.png
 11,4,Lime,Heavy,5,/images/seltzers/hals/lime.png
@@ -21,7 +21,7 @@ id,brand_id,flavor,carbonation,rating,image_path
 20,6,Blackberry Cucumber,Medium,3,/images/seltzers/lacroix/blackberrycucumber.png
 21,6,Melon Grapefruit,Medium,2,/images/seltzers/lacroix/melongrapefruit.png
 22,6,Tangerine,Medium,2,/images/seltzers/lacroix/keylime.png
-23,6,Cran-Raspberry,Medium,3,/images/seltzers/lacroix/cran-rasberry.png
+23,6,Cran-Raspberry,Medium,3,/images/seltzers/lacroix/cran-raspberry.png
 24,6,Cherry Lime,Medium,5,/images/seltzers/lacroix/cherrylime.png
 25,6,Apple Cranberry,Medium,4,/images/seltzers/lacroix/applecran.png
 26,6,Peach Pear,Medium,4,/images/seltzers/lacroix/peachpear.png
