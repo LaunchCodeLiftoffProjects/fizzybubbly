@@ -35,7 +35,6 @@ public class Drink extends AbstractEntity {
     public Drink() {
     }
 
-
     public Drink(Brand brand, String flavor, String carbonation, int rating, String imagePath, List<Review> reviews) {
         this.brand = brand;
         this.flavor = flavor;

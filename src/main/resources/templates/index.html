@@ -7,17 +7,41 @@
 
 <div class="alert alert-success alert-dismissible text-center" role="alert" th:text="${hello}" th:if="${hello}"></div>
 
-<div class="container text-center p-4 pb-1 mt-3">
+<div class="container text-center p-3 pb-3 mt-3">
     <h2>welcome to fizzybubbly</h2>
-    <h5>a site for seltzers and seltzer reviews</h5>
+    <h6>a site for seltzers and seltzer reviews</h6>
+
 </div>
 
-<div class="container body-content text-center p-5">
-    <img th:src="@{/images/sodacan.png}"/>
+<div class="container body-content text-center p-3">
+    <h4 class="text-center">looking for something new to try?</h4>
+    <div class="row align-items-center">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <img class="img-fluid rounded mx-auto d-block" th:src="@{${drink.imagePath}}"/>
+        </div>
+        <div class="col">
+            <a th:href="@{/drink/{id} (id=${drink.id})}"
+               th:text="${drink.brand + ' ' + drink.flavor}">
+            </a>
+            <h6 th:text="${'Carbonation: ' + drink.carbonation}"></h6>
+            <h6 th:text="${'Rating: ' + drink.rating + '/5'}"></h6>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
 </div>
 
-<div class="container">
-    <h5 class="text-center">click around at the top to get started</h5>
+<div class="container body-content text-center p-3">
+    <h4>check out our latest seltzer review here:</h4>
+    <h6 th:text="${review.reviewText}"></h6>
+    <a th:href="@{/drink/{id} (id=${review.id})}"
+       th:text="${review.drink}">
+    </a>
+    <h6 th:text="${review.user.getUsername}"></h6>
 </div>
 
 </body>
