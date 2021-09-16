@@ -25,6 +25,16 @@
 
             <div class="col">
                 <div class="form-floating">
+                    <select class="form-select" aria-label="Floating label select example" id="searchField1" name="searchField1">
+                        <option th:each="field1 : ${fieldChoices1}" th:id="${field1.key}" th:value="${field1.key}" th:text="${field1.value}" th:selected="${field1.key == 'all'}">
+                        </option>
+                    </select>
+                    <label for="searchField1">Select a filter</label>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-floating">
                         <input type="text" name="searchTerm" id="searchTerm" class="form-control" aria-label="Search" aria-describedby="basic-addon1">
                         <label for="searchTerm">Search</label>
                 </div>

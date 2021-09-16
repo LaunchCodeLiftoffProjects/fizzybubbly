@@ -20,35 +20,36 @@ public class SearchController {
     private DrinkRepository drinkRepository;
 
     static HashMap<String, String> fieldChoices = new HashMap<>();
+    static HashMap<String, String> fieldChoices1 = new HashMap<>();
 
     public SearchController () {
         fieldChoices.put("all", "All");
         fieldChoices.put("heavy", "Heavy");
         fieldChoices.put("medium", "Medium");
         fieldChoices.put("light", "Light");
+        fieldChoices1.put("all", "All");
     }
 
     @RequestMapping
     public String search(Model model) {
-
         for (Drink drink : drinkRepository.findAll()) {
             String key = drink.getBrand().toLowerCase();
             String value = drink.getBrand();
-            fieldChoices.put(key, value);
+            fieldChoices1.put(key, value);
         }
-
         model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
+        model.addAttribute("fieldChoices1", fieldChoices1);
         return "search";
     }
 
     @GetMapping("results")
-    public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchTerm) {
+    public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchField1, @RequestParam String searchTerm) {
 
         for (Drink drink : drinkRepository.findAll()) {
             String key = drink.getBrand().toLowerCase();
             String value = drink.getBrand();
-            fieldChoices.put(key, value);
+            fieldChoices1.put(key, value);
         }
 
         Iterable<Drink> drinks;
@@ -56,11 +57,11 @@ public class SearchController {
         if (searchTerm.toLowerCase().equals("all")){
             drinks = drinkRepository.findAll();
         } else {
-            drinks = DrinkData.findByFieldAndValue(searchField, searchTerm, drinkRepository.findAll());
+            drinks = DrinkData.findByFieldAndValue(searchField, searchField1, searchTerm, drinkRepository.findAll());
         }
-
         model.addAttribute("title", "find a seltz");
         model.addAttribute("fieldChoices", fieldChoices);
+        model.addAttribute("fieldChoices1", fieldChoices1);
         model.addAttribute("drinks", drinks);
         model.addAttribute("searchTerm", searchTerm);
         model.addAttribute("searchField", searchField);
@@ -69,4 +70,3 @@ public class SearchController {
     }
 
 }
-
