@@ -23,7 +23,7 @@ id,brand_id,flavor,carbonation,rating,image_path
 22,6,Tangerine,Medium,2,/images/seltzers/lacroix/keylime.png
 23,6,Cran-Raspberry,Medium,3,/images/seltzers/lacroix/cran-raspberry.png
 24,6,Cherry Lime,Medium,5,/images/seltzers/lacroix/cherrylime.png
-25,6,Apple Cranberry,Medium,4,/images/seltzers/lacroix/applecran.png
+25,6,Apple Cranberry,Medium,4/images/seltzers/lacroix/applecran.png
 26,6,Peach Pear,Medium,4,/images/seltzers/lacroix/peachpear.png
 27,6,Berry,Medium,3,/images/seltzers/lacroix/berry.png
 28,6,Tangerine,Medium,3,/images/seltzers/lacroix/tangerine.png

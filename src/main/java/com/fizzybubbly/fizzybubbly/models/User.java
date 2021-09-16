@@ -26,7 +26,6 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
-
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @OneToMany(mappedBy = "user")
@@ -41,8 +40,6 @@ public class User extends AbstractEntity {
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
-
-
 
     public String getFirstName() {
         return firstName;

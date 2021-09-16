@@ -125,8 +125,6 @@ public class AuthenticationController {
         return "redirect:";
     }
 
-
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, RedirectAttributes redirAttrs){
         redirAttrs.addFlashAttribute("logout", "You have logged out.");
