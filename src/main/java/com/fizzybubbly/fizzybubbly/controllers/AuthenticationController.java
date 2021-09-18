@@ -27,7 +27,10 @@ public class AuthenticationController {
     private static final String userSessionKey = "user";
 
     public User getUserFromSession(HttpSession session) {
+//   public Optional<User> getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
+
+//        return Optional.ofNullable(userId);
         if (userId == null) {
             return null;
         }
