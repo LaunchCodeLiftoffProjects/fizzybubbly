@@ -24,7 +24,7 @@ public class DrinkData {
         return results;
     }
 
-    public static ArrayList<Drink> findByFieldAndValue(String field, String field1, String value, Iterable<Drink> allDrinks) {
+    public static ArrayList<Drink> findByFieldAndValue(String field, String field1, int field2, String value, Iterable<Drink> allDrinks) {
 
         ArrayList<Drink> filter = new ArrayList<Drink>();
 //        for (Drink drink : allDrinks) {
@@ -37,18 +37,25 @@ public class DrinkData {
             return (ArrayList<Drink>) allDrinks;
         }
 
-        if (field.equals("all") && field1.equals("all")) {
+        if (field.equals("all") && field1.equals("all") && field2 == 0) {
             results = findByValue(value, allDrinks);
             return results;
         }
 
         for (Drink drink : allDrinks) {
-
-            if (drink.getCarbonation().toLowerCase().contains(field) && field1.equals("all")) {
+            if (drink.getCarbonation().toLowerCase().contains(field) && field1.equals("all") && field2 == 0) {
                 filter.add(drink);
-            } else if (drink.getBrand().toLowerCase().contains(field1) && field.equals("all")) {
+            } else if (drink.getBrand().toLowerCase().contains(field1) && field.equals("all") && field2 == 0) {
                 filter.add(drink);
-            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1)) {
+            } else if (drink.getRating() == field2 && field.equals("all") && field1.equals("all")) {
+                filter.add(drink);
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1) && field2 == 0) {
+                filter.add(drink);
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getRating() == field2 && field1.equals("all")) {
+                filter.add(drink);
+            } else if (drink.getBrand().toLowerCase().contains(field1) && drink.getRating() == field2 && field.equals("all")) {
+                filter.add(drink);
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1) && drink.getRating() == field2) {
                 filter.add(drink);
             }
         }
