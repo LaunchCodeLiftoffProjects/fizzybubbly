@@ -1,6 +1,7 @@
 package com.fizzybubbly.fizzybubbly.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DrinkData {
 
@@ -25,25 +26,30 @@ public class DrinkData {
 
     public static ArrayList<Drink> findByFieldAndValue(String field, String field1, String value, Iterable<Drink> allDrinks) {
 
-        String lower_val = value.toLowerCase();
+        ArrayList<Drink> filter = new ArrayList<Drink>();
+//        for (Drink drink : allDrinks) {
+//            filter.add(drink);
+//        }
 
-        ArrayList<Drink> filter = new ArrayList<>();
-        ArrayList<Drink> results = new ArrayList<>();
+        ArrayList<Drink> results = new ArrayList<Drink>();
 
-        if (lower_val.equals("all")){
+        if (value.toLowerCase().equals("all")) {
             return (ArrayList<Drink>) allDrinks;
+        }
+
+        if (field.equals("all") && field1.equals("all")) {
+            results = findByValue(value, allDrinks);
+            return results;
         }
 
         for (Drink drink : allDrinks) {
 
-            if (drink.getCarbonation().toLowerCase().contains(field) || drink.getBrand().toLowerCase().contains(field1)) {
+            if (drink.getCarbonation().toLowerCase().contains(field) && field1.equals("all")) {
                 filter.add(drink);
-            } else if (drink.getCarbonation().toLowerCase().contains(field) || field1.equals("all")) {
+            } else if (drink.getBrand().toLowerCase().contains(field1) && field.equals("all")) {
                 filter.add(drink);
-            } else if (drink.getBrand().toLowerCase().contains(field1) || field.equals("all")) {
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1)) {
                 filter.add(drink);
-            } else {
-                filter = findByValue(value, allDrinks);
             }
         }
 
@@ -89,6 +95,12 @@ public class DrinkData {
 //            return results;
 //        }
 //
+//    }
+
+
+
+//    else {
+//        filter = findByValue(value, allDrinks);
 //    }
 
 }
