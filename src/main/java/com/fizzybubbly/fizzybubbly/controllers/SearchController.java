@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.TreeMap;
 
 @Controller
@@ -19,7 +20,7 @@ public class SearchController {
     @Autowired
     private DrinkRepository drinkRepository;
 
-    static TreeMap<String, String> fieldChoices = new TreeMap<>();
+    static HashMap<String, String> fieldChoices = new HashMap<>();
     static TreeMap<String, String> fieldChoices1 = new TreeMap<>();
     static TreeMap<Integer, String> fieldChoices2 = new TreeMap<>();
 
