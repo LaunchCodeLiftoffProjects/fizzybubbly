@@ -1,7 +1,7 @@
 package com.fizzybubbly.fizzybubbly.models;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 
 public class DrinkData {
 
@@ -22,7 +22,7 @@ public class DrinkData {
             }
         }
 
-        results.sort(Drink.DrinkNameComparator);
+        results.sort(Comparator.comparing(Drink::getBrand).thenComparing(Drink::getFlavor));
 
         return results;
     }
@@ -39,7 +39,7 @@ public class DrinkData {
 
         if (field.equals("all") && field1.equals("all") && field2 == 0) {
             results = findByValue(value, allDrinks);
-            results.sort(Drink.DrinkNameComparator);
+            results.sort(Comparator.comparing(Drink::getBrand).thenComparing(Drink::getFlavor));
             return results;
         }
 
@@ -62,11 +62,11 @@ public class DrinkData {
         }
 
         if (value.equals("")) {
-            filter.sort(Drink.DrinkNameComparator);
+            filter.sort(Comparator.comparing(Drink::getBrand).thenComparing(Drink::getFlavor));
             return filter;
         } else {
             results = findByValue(value, filter);
-            results.sort(Drink.DrinkNameComparator);
+            results.sort(Comparator.comparing(Drink::getBrand).thenComparing(Drink::getFlavor));
             return results;
         }
 

@@ -99,18 +99,4 @@ public class Drink extends AbstractEntity {
         this.reviews = reviews;
     }
 
-    public static Comparator<Drink> DrinkNameComparator = new Comparator<Drink>() {
-
-        public int compare(Drink a, Drink b) {
-            String Drink1 = a.getBrand().toLowerCase();
-            String Drink2 = b.getBrand().toLowerCase();
-
-            return Drink1.compareTo(Drink2);
-
-            // descending order
-            // return
-            // StudentName2.compareTo(StudentName1);
-        }
-    };
-
 }
