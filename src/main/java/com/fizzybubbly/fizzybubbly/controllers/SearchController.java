@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 @Controller
 @RequestMapping("search")
@@ -20,9 +22,9 @@ public class SearchController {
     @Autowired
     private DrinkRepository drinkRepository;
 
-    static HashMap<String, String> fieldChoices = new HashMap<>();
-    static HashMap<String, String> fieldChoices1 = new HashMap<>();
-    static HashMap<Integer, String> fieldChoices2 = new HashMap<>();
+    static TreeMap<String, String> fieldChoices = new TreeMap<>();
+    static TreeMap<String, String> fieldChoices1 = new TreeMap<>();
+    static TreeMap<Integer, String> fieldChoices2 = new TreeMap<>();
 
     public SearchController () {
         fieldChoices.put("all", "All Carbonation");
