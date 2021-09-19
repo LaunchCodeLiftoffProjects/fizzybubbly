@@ -1,5 +1,4 @@
 package com.fizzybubbly.fizzybubbly.controllers;
-
 import com.fizzybubbly.fizzybubbly.models.Drink;
 import com.fizzybubbly.fizzybubbly.models.Review;
 import com.fizzybubbly.fizzybubbly.models.User;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Controller
@@ -27,10 +25,11 @@ public class DrinkController {
     @Autowired
     private AuthenticationController authenticationController;
 
+    boolean userHasReviewed;
 
-    @GetMapping("/{id}")
-    public String displayDrinkDetails(@PathVariable Integer id, HttpServletRequest request, Model model) {
-        Optional<Drink> result = drinkRepository.findById(id);
+    @GetMapping("/{drinkId}")
+    public String displayDrinkDetails(@PathVariable Integer drinkId, HttpServletRequest request, Model model) {
+        Optional<Drink> result = drinkRepository.findById(drinkId);
         Drink drink = result.get();
         User user = authenticationController.getUserFromSession(request.getSession());
         Review review = new Review();
@@ -38,22 +37,35 @@ public class DrinkController {
         review.setDrink(drink);
         review.setUser(user);
 
+        userHasReviewed = false;
+
+        //if user is not null and there is a review of drink by user, userHasReviewed is true
+        if (user != null && !reviewRepository.findReviewsByDrinkIdAndUserId(drinkId, user.getId()).isEmpty()) {
+                userHasReviewed = true;
+        };
+
         model.addAttribute("review", review);
         model.addAttribute("title", drink.toString());
         model.addAttribute("drink", drink);
+        model.addAttribute("user", user);
+        model.addAttribute("userHasReviewed", userHasReviewed);
+        model.addAttribute("isNewReview", false);
 
         return "drink";
     }
 
-    @PostMapping("/{id}")
-    public String submitNewReview(@PathVariable Integer id, @ModelAttribute Review newReview, Model model) {
-        Optional<Drink> result = drinkRepository.findById(id);
+    @PostMapping("/{drinkId}")
+    public String submitNewReview(@PathVariable Integer drinkId, @ModelAttribute Review newReview, Model model) {
+        Optional<Drink> result = drinkRepository.findById(drinkId);
         Drink drink = result.get();
+
+        reviewRepository.save(newReview);
+        userHasReviewed = true;
 
         model.addAttribute("title", drink.toString());
         model.addAttribute("drink", drink);
-
-        reviewRepository.save(newReview);
+        model.addAttribute("userHasReviewed", userHasReviewed);
+        model.addAttribute("isNewReview", true);
 
         return "drink";
     }

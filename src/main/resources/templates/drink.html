@@ -35,13 +35,22 @@
             <tbody>
             <tr th:each="review: ${drink.reviews}">
                 <td th:text="${review.reviewText}"></td>
-                <td th:text="${review.user.getUsername} ?: 'UNK'"></td>
+                <td th:text="${review.user.getUsername}"></td>
             </tr>
             </tbody>
         </table>
 
     </div>
-    <div class="container">
+    <div class="container" th:unless="${user}">
+        <p><small>Log in if you'd like to leave a review!</small></p>
+    </div>
+    <div class="container" th:if="${userHasReviewed == true && isNewReview == false}">
+        <p><small>Looks like you've already left a review!</small></p>
+    </div>
+    <div class="container" th:if="${userHasReviewed == true && isNewReview == true}">
+        <p><small>Nice, your review has been added!</small></p>
+    </div>
+    <div th:if="${user != null && userHasReviewed == false}" class="container">
         <form action="#" th:action="@{/drink/{id} (id=${drink.id})}" th:object="${review}" method="post">
 
             <input type="hidden" th:field="*{user}" class="form-control">
