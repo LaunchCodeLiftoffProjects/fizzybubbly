@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Entity
@@ -48,7 +49,6 @@ public class Drink extends AbstractEntity {
     public String toString() {
         return brand.getName() + " " + flavor;
     }
-
 
     public String getBrand() {
         return brand.getName();
@@ -97,4 +97,5 @@ public class Drink extends AbstractEntity {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
 }
