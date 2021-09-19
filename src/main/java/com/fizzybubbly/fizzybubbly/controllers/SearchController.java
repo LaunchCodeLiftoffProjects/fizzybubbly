@@ -55,6 +55,8 @@ public class SearchController {
     @GetMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchField, @RequestParam String searchField1, @RequestParam Integer searchField2, @RequestParam String searchTerm) {
 
+//        Sort sortOrder = Sort.by("drink.carbonation");
+
         for (Drink drink : drinkRepository.findAll()) {
             String key = drink.getBrand().toLowerCase();
             String value = drink.getBrand();
@@ -62,7 +64,7 @@ public class SearchController {
         }
 
         Iterable<Drink> drinks;
-//        Sort sortOrder = Sort.by("drink.carbonation");
+
         if (searchTerm.toLowerCase().equals("all")){
             drinks = drinkRepository.findAll();
         } else {

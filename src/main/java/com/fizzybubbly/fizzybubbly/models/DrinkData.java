@@ -1,7 +1,7 @@
 package com.fizzybubbly.fizzybubbly.models;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class DrinkData {
 
@@ -21,15 +21,15 @@ public class DrinkData {
                 results.add(drink);
             }
         }
+
+        results.sort(Drink.DrinkNameComparator);
+
         return results;
     }
 
     public static ArrayList<Drink> findByFieldAndValue(String field, String field1, int field2, String value, Iterable<Drink> allDrinks) {
 
         ArrayList<Drink> filter = new ArrayList<Drink>();
-//        for (Drink drink : allDrinks) {
-//            filter.add(drink);
-//        }
 
         ArrayList<Drink> results = new ArrayList<Drink>();
 
@@ -39,6 +39,7 @@ public class DrinkData {
 
         if (field.equals("all") && field1.equals("all") && field2 == 0) {
             results = findByValue(value, allDrinks);
+            results.sort(Drink.DrinkNameComparator);
             return results;
         }
 
@@ -61,9 +62,11 @@ public class DrinkData {
         }
 
         if (value.equals("")) {
+            filter.sort(Drink.DrinkNameComparator);
             return filter;
         } else {
             results = findByValue(value, filter);
+            results.sort(Drink.DrinkNameComparator);
             return results;
         }
 
