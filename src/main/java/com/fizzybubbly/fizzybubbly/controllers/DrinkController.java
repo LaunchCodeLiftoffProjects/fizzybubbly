@@ -43,6 +43,7 @@ public class DrinkController {
         if (user != null && !reviewRepository.findReviewsByDrinkIdAndUserId(drinkId, user.getId()).isEmpty()) {
                 userHasReviewed = true;
         };
+        System.out.println(drink.getReviews().getClass());
 
         model.addAttribute("review", review);
         model.addAttribute("title", drink.toString());

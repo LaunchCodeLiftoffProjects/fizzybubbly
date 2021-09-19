@@ -22,10 +22,11 @@
     <div class="container mt-5">
         <p>
             Hey friend! Here at fizzybubbly we value your opinion. Please feel free to let everyone here
-            hear you. Please remember this website is seen by folks of all ages, from the very young at heart
-            to the very old at heart. Comment and enjoy responsibly here at fizzybubbly!
+            hear you. Remember, this website is seen by folks of all ages, from the very young to the very young at heart.
+            Comment and enjoy responsibly here at fizzybubbly!
         </p>
-        <table class="table">
+
+        <table th:if="${drink.reviews} != null" class="table">
             <thead>
             <tr>
                 <th>review</th>
@@ -39,6 +40,8 @@
             </tr>
             </tbody>
         </table>
+
+        <span th:if="${drink.reviews.size} == 0">Looks like there aren't any reviews to display</span>
 
     </div>
     <div class="container" th:unless="${user}">
