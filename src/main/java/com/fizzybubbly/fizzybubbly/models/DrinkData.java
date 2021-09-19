@@ -6,16 +6,22 @@ import java.util.Comparator;
 public class DrinkData {
 
     public static ArrayList<Drink> findByValue(String value, Iterable<Drink> allDrinks) {
+
         String lower_val = value.toLowerCase();
 
         ArrayList<Drink> results = new ArrayList<>();
 
         for (Drink drink : allDrinks) {
+
+            String rating = String.valueOf(drink.getRating());
+
             if (drink.getBrand().toLowerCase().contains(lower_val)) {
                 results.add(drink);
             } else if (drink.getFlavor().toLowerCase().contains(lower_val)) {
                 results.add(drink);
             } else if (drink.getCarbonation().toLowerCase().contains(lower_val)) {
+                results.add(drink);
+            } else if (rating.equals(lower_val)) {
                 results.add(drink);
             } else if (drink.toString().toLowerCase().contains(lower_val)) {
                 results.add(drink);
