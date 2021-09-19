@@ -1,6 +1,7 @@
 package com.fizzybubbly.fizzybubbly.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 
@@ -13,6 +14,7 @@ public class Review extends AbstractEntity {
     private Drink drink;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Review() {}
