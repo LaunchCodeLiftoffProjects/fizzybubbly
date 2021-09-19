@@ -8,7 +8,19 @@
 
 <div th:replace="fragments :: page-title"></div>
 
-<p th:text="${username}"></p>
-
+<div class="container body-content col-5 mt-5">
+    <div class="row align-items-center">
+        <div class="col">
+            <p th:text="${user.firstName + ' ' + user.lastName}"></p>
+            <p th:text="${user.email}"></p>
+            <p th:text="${user.firstName + ' ' + user.lastName + ' Reviews:'}"></p>
+        </div>
+    </div>
+            <table>
+                <tr th:each="review : ${user.getReviews}">
+                    <td th:text="${review}">
+             <td th:text="${review.drink}">
+            </table>
+    </div>
 </body>
 </html>

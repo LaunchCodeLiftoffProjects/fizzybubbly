@@ -73,4 +73,7 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
 }
