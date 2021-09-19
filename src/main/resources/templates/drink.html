@@ -41,10 +41,13 @@
             </tbody>
         </table>
 
-        <span th:if="${drink.reviews.size} == 0">Looks like there aren't any reviews to display</span>
+        <span th:if="${drink.reviews.size} == 0">
+            Looks like there aren't any reviews to display.
+            Be the first to review by adding yours below!
+        </span>
 
     </div>
-    <div class="container" th:unless="${user}">
+    <div class="container mt-5" th:unless="${user}">
         <p><small>Log in if you'd like to leave a review!</small></p>
     </div>
     <div class="container" th:if="${userHasReviewed == true && isNewReview == false}">
