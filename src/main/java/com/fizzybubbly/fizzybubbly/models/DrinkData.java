@@ -34,7 +34,6 @@ public class DrinkData {
         ArrayList<Drink> results = new ArrayList<Drink>();
 
         if (value.toLowerCase().equals("all")) {
-            // TODO: Comparator here?
             return (ArrayList<Drink>) allDrinks;
         }
 
