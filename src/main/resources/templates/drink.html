@@ -16,7 +16,9 @@
             <h2 th:text="${drink.flavor}"></h2>
             <h5 th:text="${'Carbonation: ' + drink.carbonation}"></h5>
             <h5>Average Rating: <span th:replace="fragments :: star-rating"></span></h5>
-
+            <a th:href="@{https://www.google.com/search?q=where+to+buy+seltzer}"
+               th:text="${'where to buy ' + drink.brand}">
+            </a>
         </div>
     </div>
 

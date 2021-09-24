@@ -67,3 +67,9 @@ fieldset, label { margin: 0; padding: 0; }
   height: 120px;
   object-fit: contain;
 }
+
+.profile-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
