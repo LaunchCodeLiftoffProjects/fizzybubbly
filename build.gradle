@@ -33,3 +33,10 @@ springBoot {
 	mainClass = 'com.fizzybubbly.fizzybubbly.FizzybubblyApplication'
 }
 
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'com.fizzybubbly.FizzybubblyApplication'
+		)
+	}
+}
