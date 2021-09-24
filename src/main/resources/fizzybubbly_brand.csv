@@ -1,8 +1,8 @@
-id,name
-1,Polar
-2,Waterloo
-3,Spindrift
-4,Hal's NY
-5,Canada Dry
-6,LaCroix
-7,S Pellegrino
+id,name,locator
+1,Polar,https://polarseltzer.com/find/
+2,Waterloo,https://www.drinkwaterloo.com/find-a-store
+3,Spindrift,https://drinkspindrift.com/where-to-buy/
+4,Hal's NY,https://www.halsnewyork.com/online-retailers/
+5,Canada Dry,https://www.google.com/search?q=where+to+buy+seltzer+canada+dry
+6,LaCroix,https://www.lacroixwater.com/store-locator/
+7,S Pellegrino,https://www.sanpellegrino.com/us/en
