@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/scripts.js}"></script>
 
 </head>
 <body>
 
+<!--Page Header-->
 <div th:fragment="page-header" class="container-fluid" style="background-color:#9ed0ff;">
     <nav class="navbar navbar-expand-sm navbar-light">
         <a href="/" class="navbar-brand">
@@ -32,7 +34,9 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/search/results?searchField=all&searchField1=all&searchField2=0&searchTerm=">find a seltz</a>
+                    <a class="nav-link"
+                       href="/search/results?searchField=all&searchField1=all&searchField2=0&searchTerm=">find a
+                        seltz</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/add">add a seltz</a>
@@ -42,13 +46,13 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item" th:unless = "${user}">
+                <li class="nav-item" th:unless="${user}">
                     <a class="nav-link" href="/login">login</a>
                 </li>
-                <li class="nav-item" th:unless = "${user}">
+                <li class="nav-item" th:unless="${user}">
                     <a class="nav-link" href="/signUp">sign up</a>
                 </li>
-                <li class="nav-item" th:if = "${user}">
+                <li class="nav-item" th:if="${user}">
                     <a class="nav-link" href="/logout">logout</a>
                 </li>
                 <li class="nav-item">
@@ -60,9 +64,17 @@
     </nav>
 </div>
 
+<!--Page Title-->
 <div th:fragment="page-title">
     <h2 class="text-center p-4 mt-3" th:text="${title}"></h2>
 </div>
+
+<!--Star Rating-->
+<span th:fragment="star-rating">
+    <span class="stars-outer">
+        <span class="stars-inner" th:style="|--rating: ${drink.avgRating}|"></span>
+    </span>
+</span>
 
 </body>
 </html>

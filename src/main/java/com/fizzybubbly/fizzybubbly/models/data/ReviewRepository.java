@@ -14,6 +14,7 @@ public interface ReviewRepository extends PagingAndSortingRepository <Review, In
 
     @Query(value = "SELECT * FROM review WHERE drink_id = :drinkId AND user_id = :userId", nativeQuery = true)
     List<Review> findReviewsByDrinkIdAndUserId(@Param("drinkId") Integer drinkId, @Param("userId") Integer userId);
+
 }
 
 
