@@ -6,7 +6,7 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<div class="container body-content col-5 mt-5">
+<div class="container body-content col-7 mt-5">
     <div class="row align-items-center">
         <div class="col">
             <img class="img-fluid rounded mx-auto d-block" th:src="@{${drink.imagePath}}"/>
@@ -15,7 +15,7 @@
             <h1 th:text="${drink.brand}"></h1>
             <h2 th:text="${drink.flavor}"></h2>
             <h5 th:text="${'Carbonation: ' + drink.carbonation}"></h5>
-            <h5 th:text="${'Rating: ' + drink.rating + '/5'}"></h5>
+            <h5>Average Rating: <span th:replace="fragments :: star-rating"></span></h5>
             <a th:href="@{https://www.google.com/search?q=where+to+buy+seltzer}"
                th:text="${'where to buy ' + drink.brand}">
             </a>
@@ -25,26 +25,39 @@
     <div class="container mt-5">
         <p>
             Hey friend! Here at fizzybubbly we value your opinion. Please feel free to let everyone here
-            hear you. Please remember this website is seen by folks of all ages, from the very young at heart
-            to the very old at heart. Comment and enjoy responsibly here at fizzybubbly!
+            hear you. Remember, this website is seen by folks of all ages, from the very young to the very young at
+            heart.
+            Comment and enjoy responsibly here at fizzybubbly!
         </p>
-        <table class="table">
+
+        <table th:if="${drink.reviews} != null" class="table">
             <thead>
             <tr>
                 <th>review</th>
                 <th>user</th>
+                <th>rating</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="review: ${drink.reviews}">
                 <td th:text="${review.reviewText}"></td>
-                <td th:text="${review.user.getUsername}"></td>
+                <td th:text="${review.user.username}"></td>
+                <td>
+                    <div class="stars-outer">
+                        <div class="stars-inner" th:style="|--rating: ${review.rating}|"></div>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
 
+        <span th:if="${drink.reviews.size} == 0">
+            Looks like there aren't any reviews to display.
+            Be the first to review by adding yours below!
+        </span>
+
     </div>
-    <div class="container" th:unless="${user}">
+    <div class="container mt-5" th:unless="${user}">
         <p><small>Log in if you'd like to leave a review!</small></p>
     </div>
     <div class="container" th:if="${userHasReviewed == true && isNewReview == false}">
@@ -53,22 +66,45 @@
     <div class="container" th:if="${userHasReviewed == true && isNewReview == true}">
         <p><small>Nice, your review has been added!</small></p>
     </div>
-    <div th:if="${user != null && userHasReviewed == false}" class="container">
+    <div th:if="${user != null && userHasReviewed == false}" class="container shadow-sm">
+        <p class="mt-5">add your rating and review:</p>
         <form action="#" th:action="@{/drink/{id} (id=${drink.id})}" th:object="${review}" method="post">
+            <div class="form-group mb-5">
+                <input type="hidden" th:field="*{user}" class="form-control">
+                <input type="hidden" th:field="*{drink}" class="form-control">
 
-            <input type="hidden" th:field="*{user}" class="form-control">
-            <input type="hidden" th:field="*{drink}" class="form-control">
+                <div>
+                    <fieldset class="rating">
 
-            <div class="mb-3 mt-5">
-                <label class="form-label">add your review:
-                    <textarea type="text" th:field="*{reviewText}" class="form-control mt-3" style="min-width: 200%" rows="4"></textarea>
-                </label>
+                        <input type="radio" th:field="*{rating}" id="star5" name="rating" value="5"/>
+                        <label class="full" for="star5"
+                               title="Awesome"></label>
+
+
+                        <input type="radio" th:field="*{rating}" id="star4" name="rating" value="4"/>
+                        <label class="full" for="star4"
+                               title="Pretty good"></label>
+
+                        <input type="radio" th:field="*{rating}" id="star3" name="rating" value="3"/>
+                        <label class="full" for="star3"
+                               title="Meh"></label>
+
+                        <input type="radio" th:field="*{rating}" id="star2" name="rating" value="2"/>
+                        <label class="full" for="star2"
+                               title="Kinda bad"></label>
+
+                        <input type="radio" th:field="*{rating}" id="star1" name="rating" value="1"/>
+                        <label class="full" for="star1"
+                               title="Sucks big time"></label>
+
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control mt-3" th:field="*{reviewText}"></textarea></div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-md mt-2 mb-2" type="submit">submit</button>
+                </div>
             </div>
-
-            <div class="mb-3">
-                <input type="submit" value="add review" class="btn btn-primary"/>
-            </div>
-
         </form>
     </div>
 </div>

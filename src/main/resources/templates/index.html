@@ -27,7 +27,7 @@
                th:text="${drink.brand + ' ' + drink.flavor}">
             </a>
             <h6 th:text="${'Carbonation: ' + drink.carbonation}"></h6>
-            <h6 th:text="${'Rating: ' + drink.rating + '/5'}"></h6>
+            <h6>Rating: <span th:replace="fragments :: star-rating"></span></h6>
         </div>
         <div class="col">
             <img class="img-fluid rounded mx-auto d-block" th:src="@{images/bubbles.jpg}"/>

@@ -99,7 +99,7 @@
                     </a>
                 </td>
                 <td th:text="${drink.carbonation}"></td>
-                <td th:text="${drink.rating + '/5'}"></td>
+                <td><span th:replace="fragments :: star-rating"></span></td>
             </tr>
         </tbody>
     </table>
