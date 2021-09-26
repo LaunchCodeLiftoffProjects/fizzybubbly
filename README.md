@@ -1,9 +1,5 @@
 # fizzybubbly
 
-## Setup
-
-to get the database up and running, drop all the tables in the schema (including the Hibernate table), re-run the app so Hibernate can set the tables up and establish relationships, and then import the CSV files, keeping in mind that the columns need to match
-
 ## Overview
 
 Our project is a product review site (“fizzybubbly”) dedicated to non-alcoholic seltzers and sparkling waters. The heart of this web app is a database of 50+ such products. Users will be able to find and create product reviews, rate products, and log in to curate a personal list of favorites. They will also be able to find places to purchase products both online and at brick-and-mortar retailers.
