@@ -10,6 +10,8 @@ public class Review extends AbstractEntity {
 
     private String reviewText;
 
+    private Integer rating;
+
     @ManyToOne
     private Drink drink;
 
@@ -19,14 +21,19 @@ public class Review extends AbstractEntity {
 
     public Review() {}
 
-    public Review(String reviewText) {
+    public Review(String reviewText, Integer rating, Drink drink, User user) {
         this.reviewText = reviewText;
-    }
-
-    public Review(String reviewText, Drink drink, User user) {
-        this.reviewText = reviewText;
+        this.rating = rating;
         this.drink = drink;
         this.user = user;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public String getReviewText() {

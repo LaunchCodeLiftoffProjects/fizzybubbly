@@ -1,4 +1,4 @@
-id,brand_id,flavor,carbonation,rating,image_path
+id,brand_id,flavor,carbonation,avg_rating,image_path
 1,1,Black Cherry,Heavy,5,/images/seltzers/polar/blackcherry.png
 2,1,Lime,Heavy,4,/images/seltzers/polar/lime.png
 3,1,Lemon,Heavy,4,/images/seltzers/polar/polar-lemon.jpg
