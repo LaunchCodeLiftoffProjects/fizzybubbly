@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,8 +31,14 @@ public class ProfileController {
     UserRepository userRepository;
 
     @GetMapping
-    public String profile(Model model, HttpSession session) {
+    public String profile(Model model, HttpSession session, RedirectAttributes redirAttrs) {
         User user = authenticationController.getUserFromSession(session);
+        if (user == null) {
+            redirAttrs.addFlashAttribute("mustlogin", "Please log into access this feature.");
+
+            return "redirect:login";
+        }
+
         model.addAttribute("title", user.getUsername());
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastname", user.getLastName());
@@ -41,6 +48,7 @@ public class ProfileController {
 
         return "profile";
     }
+
 }
 
 
