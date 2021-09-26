@@ -36,7 +36,7 @@ Release 3
 - JUnit: Unit testing suite for Java
 - MySQL: Database for holding product/user information
 
-## What I’ll Have to Learn
+## What We Had to Learn
 
 - Spring Authentication/third-party authentication
 - TDD in Spring
