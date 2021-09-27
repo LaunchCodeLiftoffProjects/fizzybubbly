@@ -18,6 +18,9 @@ public interface ReviewRepository extends PagingAndSortingRepository <Review, In
     @Query(value = "SELECT * FROM review ORDER BY id DESC LIMIT 0,1;", nativeQuery = true)
     Integer findLatestReviewId();
 
+    @Query(value = "SELECT IFNULL((SELECT AVG(rating) FROM review WHERE drink_id = :drinkId), 0)", nativeQuery = true)
+    double getAvgRating(@Param("drinkId") Integer drinkId);
+
 }
 
 

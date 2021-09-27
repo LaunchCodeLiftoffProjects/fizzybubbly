@@ -1,5 +1,7 @@
 package com.fizzybubbly.fizzybubbly.models;
 
+import com.fizzybubbly.fizzybubbly.RatingService;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -13,7 +15,7 @@ public class DrinkData {
 
         for (Drink drink : allDrinks) {
 
-            String avgRating = String.valueOf(drink.getAvgRating());
+            String avgRating = String.valueOf(RatingService.getAvgRating(drink));
 
             if (drink.getBrand().toLowerCase().contains(lower_val)) {
                 results.add(drink);
@@ -54,15 +56,15 @@ public class DrinkData {
                 filter.add(drink);
             } else if (drink.getBrand().toLowerCase().contains(field1) && field.equals("all") && field2 == 0) {
                 filter.add(drink);
-            } else if (drink.getAvgRating() == field2 && field.equals("all") && field1.equals("all")) {
+            } else if (RatingService.getAvgRating(drink) == field2 && field.equals("all") && field1.equals("all")) {
                 filter.add(drink);
             } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1) && field2 == 0) {
                 filter.add(drink);
-            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getAvgRating() == field2 && field1.equals("all")) {
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && RatingService.getAvgRating(drink) == field2 && field1.equals("all")) {
                 filter.add(drink);
-            } else if (drink.getBrand().toLowerCase().contains(field1) && drink.getAvgRating() == field2 && field.equals("all")) {
+            } else if (drink.getBrand().toLowerCase().contains(field1) && RatingService.getAvgRating(drink) == field2 && field.equals("all")) {
                 filter.add(drink);
-            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1) && drink.getAvgRating() == field2) {
+            } else if (drink.getCarbonation().toLowerCase().contains(field) && drink.getBrand().toLowerCase().contains(field1) && RatingService.getAvgRating(drink) == field2) {
                 filter.add(drink);
             }
         }

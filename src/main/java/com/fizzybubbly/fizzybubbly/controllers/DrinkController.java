@@ -1,4 +1,5 @@
 package com.fizzybubbly.fizzybubbly.controllers;
+import com.fizzybubbly.fizzybubbly.RatingService;
 import com.fizzybubbly.fizzybubbly.models.Drink;
 import com.fizzybubbly.fizzybubbly.models.Review;
 import com.fizzybubbly.fizzybubbly.models.User;
@@ -31,8 +32,10 @@ public class DrinkController {
     public String displayDrinkDetails(@PathVariable Integer drinkId, HttpServletRequest request, Model model) {
         Optional<Drink> result = drinkRepository.findById(drinkId);
         Drink drink = result.get();
+
         User user = authenticationController.getUserFromSession(request.getSession());
         Review review = new Review();
+
 
         review.setDrink(drink);
         review.setUser(user);
@@ -48,6 +51,8 @@ public class DrinkController {
         model.addAttribute("title", drink.toString());
         model.addAttribute("drink", drink);
         model.addAttribute("user", user);
+//        model.addAttribute("avgRating", RatingService.getAvgRating(drink));
+        model.addAttribute("avgRating", reviewRepository.getAvgRating(drinkId));
         model.addAttribute("userHasReviewed", userHasReviewed);
         model.addAttribute("isNewReview", false);
 
