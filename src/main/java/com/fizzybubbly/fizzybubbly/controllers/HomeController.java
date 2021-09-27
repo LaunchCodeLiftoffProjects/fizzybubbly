@@ -1,6 +1,5 @@
 package com.fizzybubbly.fizzybubbly.controllers;
 
-import com.fizzybubbly.fizzybubbly.RatingService;
 import com.fizzybubbly.fizzybubbly.models.Drink;
 import com.fizzybubbly.fizzybubbly.models.Review;
 import com.fizzybubbly.fizzybubbly.models.User;
@@ -35,7 +34,7 @@ public class HomeController {
 
         User user = authenticationController.getUserFromSession(request.getSession());
 
-        model.addAttribute("avgRating", RatingService.getAvgRating(drink));
+        model.addAttribute("avgRating", reviewRepository.getAvgRating(drink.getId()));
 
         model.addAttribute("title", "have you tried these yet?");
         model.addAttribute("title", drink.toString());
