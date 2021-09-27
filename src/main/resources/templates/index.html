@@ -14,7 +14,7 @@
 </div>
 
 <div class="container body-content text-center p-3">
-    <h4 class="text-center">looking for something new to try?</h4>
+    <div class="mb-4"><h4 class="text-center display-6" style="font-style: italic">looking for something new to try?</h4></div>
     <div class="row align-items-center">
         <div class="col">
             <img class="img-fluid rounded mx-auto d-block" th:src="@{images/bubbles.jpg}"/>
@@ -23,11 +23,13 @@
             <img class="img-fluid rounded mx-auto d-block" th:src="@{${drink.imagePath}}"/>
         </div>
         <div class="col">
-            <a th:href="@{/drink/{id} (id=${drink.id})}"
-               th:text="${drink.brand + ' ' + drink.flavor}">
+            <a class="h5" th:href="@{/drink/{id} (id=${drink.id})}"
+               th:text="${drink.brand + ' ' + drink.flavor}" style="text-decoration: none">
             </a>
             <h6 th:text="${'Carbonation: ' + drink.carbonation}"></h6>
-            <h6>Rating: <span th:replace="fragments :: star-rating"></span></h6>
+            <h6>Rating: <span class="stars-outer">
+                    <span class="stars-inner" th:style="|--rating: ${avgRating}|"></span>
+                </span></h6>
         </div>
         <div class="col">
             <img class="img-fluid rounded mx-auto d-block" th:src="@{images/bubbles.jpg}"/>
@@ -35,13 +37,12 @@
     </div>
 </div>
 
-<div class="container body-content text-center p-3">
-    <h4>check out our latest seltzer review here:</h4>
-    <h6 th:text="${review.reviewText}"></h6>
-    <a th:href="@{/drink/{id} (id=${review.id})}"
-       th:text="${review.drink}">
-    </a>
-    <h6 th:text="${review.user.getUsername}"></h6>
+<div class="container text-center p-3" style="max-width: 50%">
+    <h5>check out our latest seltzer review here:</h5>
+    <p>
+        <span th:text="${review.user.getUsername}" style="font-weight: bold"></span> on
+        <a th:href="@{/drink/{id} (id=${review.id})}" th:text="${review.drink}" style="text-decoration: none"></a> <br>"<span style="font-style: italic" th:text="${review.reviewText}"></span>"
+    </p>
 </div>
 
 </body>

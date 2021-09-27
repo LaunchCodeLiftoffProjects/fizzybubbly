@@ -33,10 +33,8 @@ public class HomeController {
         Review review = reviewResult.get();
 
         User user = authenticationController.getUserFromSession(request.getSession());
-//        Review review = new Review();
-//
-//        review.setDrink(drink);
-//        review.setUser(user);
+
+        model.addAttribute("avgRating", reviewRepository.getAvgRating(drink.getId()));
 
         model.addAttribute("title", "have you tried these yet?");
         model.addAttribute("title", drink.toString());
